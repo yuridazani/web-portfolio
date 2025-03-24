@@ -186,6 +186,39 @@
         .card-3d:hover {
             transform: rotateY(10deg) rotateX(10deg);
         }
+        /* Additional Certificate Styles */
+        .certificate-id {
+          font-size: 0.8rem;
+          color: var(--text-muted);
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        
+        .certificate-link {
+          display: inline-block;
+          color: var(--primary);
+          font-size: 0.85rem;
+          font-weight: 500;
+          margin-top: 8px;
+          transition: var(--transition);
+        }
+        
+        .certificate-link:hover {
+          color: var(--accent);
+          transform: translateX(5px);
+        }
+        
+        .certificate-link i {
+          margin-left: 5px;
+          font-size: 0.8rem;
+        }
+        
+        /* Make the certificate cards a bit taller to accommodate new content */
+        .certificate-content {
+          padding: 15px;
+          min-height: 160px;
+        }
+        
     </style>
 </head>
 <body>
