@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="style.css">
     <style>
         /* Additional styles to make it more Gen Z */
@@ -411,8 +413,11 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
+        <div class="particles" id="particles-js"></div>
         <div class="container">
             <div class="hero-content fade-in bounce-in">
+                <div class="dynamic-cursor"></div>
+                <canvas id="floating-logo"></canvas>
                 <img src="Picture/pic1.jpg" alt="Profile Image" class="hero-img floating">
                 <div class="typewriter">
                     <h1 class="hero-title">Hi, I'm <span id="name">Yurida Zani</span></h1>
@@ -500,6 +505,9 @@ I began exploring the world of web development in my early 20s while studying at
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
+    <div class="skill-visualization">
+        <canvas id="skills-radar"></canvas>
+    </div>
         <div class="container">
             <h2 class="section-title fade-in">Skills <span class="emoji-highlight">🛠️</span></h2>
             <div class="skills-container">
@@ -602,6 +610,12 @@ I began exploring the world of web development in my early 20s while studying at
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="mobile">Mobile</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+        </div>
             <h2 class="section-title fade-in">Projects <span class="emoji-highlight">🚀</span></h2>
             <div class="projects-grid">
                 <div class="project-card fade-in">
@@ -971,6 +985,62 @@ I began exploring the world of web development in my early 20s while studying at
         skillBars.forEach(bar => {
             animateSkills.observe(bar);
         });
+
+
+// Tambahkan di bagian JavaScript
+// Interactive Cursor
+document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.dynamic-cursor');
+    cursor.style.left = `${e.clientX - 15}px`;
+    cursor.style.top = `${e.clientY - 15}px`;
+});
+
+// Project Filter
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const filter = this.dataset.filter;
+        // Filter logic
+    });
+});
+
+// 3D Floating Logo dengan Three.js
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#floating-logo') });
+// Tambahkan objek 3D dan animasi
+
+// Skills Radar Chart
+const skillsChart = new Chart(document.getElementById('skills-radar'), {
+    type: 'radar',
+    data: {
+        labels: ['HTML', 'CSS', 'JS', 'PHP', 'Design'],
+        datasets: [{
+            data: [95, 90, 85, 80, 75],
+            backgroundColor: 'rgba(250, 218, 221, 0.2)',
+            borderColor: 'var(--primary)'
+        }]
+    }
+});
+
+// Scroll Reveal
+ScrollReveal().reveal('.section-title, .project-card, .certificate-card', {
+    delay: 300,
+    distance: '50px',
+    origin: 'bottom',
+    interval: 200
+});
+
+// Particle.js Initialization
+particlesJS('particles-js', {
+    // Konfigurasi particle
+    particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        color: { value: '#FADADD' }
+    }
+});
     </script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </body>
 </html>
