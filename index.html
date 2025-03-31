@@ -382,6 +382,18 @@
             transform: translateY(-5px);
           }
         }
+
+        /* Tambahkan di CSS */
+        .dynamic-cursor {
+          transition: transform 0.15s, opacity 0.3s;
+          transform: scale(1);
+        }
+        
+        .dynamic-cursor.hover {
+          transform: scale(1.5);
+          background: var(--primary);
+          opacity: 0.5;
+        }
     </style>
 </head>
 <body>
@@ -997,17 +1009,47 @@ document.addEventListener('mousemove', (e) => {
 
 // Project Filter
 document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        const filter = this.dataset.filter;
-        // Filter logic
+  button.addEventListener('click', function() {
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.style.display = 
+        (filter === 'all' || card.dataset.category === filter) ? 
+        'block' : 'none';
     });
+    
+    // Update tombol aktif
+    document.querySelectorAll('.filter-btn').forEach(btn => 
+      btn.classList.remove('active'));
+    this.classList.add('active');
+  });
 });
 
-// 3D Floating Logo dengan Three.js
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#floating-logo') });
-// Tambahkan objek 3D dan animasi
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ 
+  canvas: document.querySelector('#floating-logo'),
+  alpha: true 
+});
+
+const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const material = new THREE.MeshBasicMaterial({ 
+  color: 0xFF69B4,
+  wireframe: true 
+});
+const torus = new THREE.Mesh(geometry, material);
+scene.add(torus);
+
+camera.position.z = 50;
+
+function animate() {
+  requestAnimationFrame(animate);
+  torus.rotation.x += 0.01;
+  torus.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+animate();
+
+
 
 // Skills Radar Chart
 const skillsChart = new Chart(document.getElementById('skills-radar'), {
@@ -1032,15 +1074,32 @@ ScrollReveal().reveal('.section-title, .project-card, .certificate-card', {
 
 // Particle.js Initialization
 particlesJS('particles-js', {
-    // Konfigurasi particle
-    particles: {
-        number: { value: 80 },
-        size: { value: 3 },
-        color: { value: '#FADADD' }
+  particles: {
+    number: { value: 80 },
+    size: { value: 3 },
+    color: { value: '#FADADD' },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: '#FADADD',
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 6,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false
     }
+  }
 });
     </script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>
