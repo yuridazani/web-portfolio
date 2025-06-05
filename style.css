@@ -866,49 +866,17 @@
     }
   }
 
-/* Tambahkan efek 3D yang lebih kompleks */
-.card-3d {
-    transform: perspective(1000px) rotateY(var(--rotate-y)) rotateX(var(--rotate-x));
-    transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary);
 }
 
-/* Efek floating yang lebih dinamis */
-@keyframes floating {
-    0% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-20px) rotate(2deg); }
-    100% { transform: translateY(0) rotate(-2deg); }
-}
-
-/* Dynamic cursor effect */
-.dynamic-cursor {
-    position: fixed;
-    pointer-events: none;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--primary);
-    border-radius: 50%;
-    mix-blend-mode: difference;
-    transition: transform 0.3s, opacity 0.3s;
-    z-index: 9999;
-}
-
-/* Particle.js container */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-/* 3D Floating Logo */
-#floating-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.1;
-    z-index: -1;
+/* Style untuk dark mode jika input/textarea kurang kontras */
+.dark-mode .contact-form-container input,
+.dark-mode .contact-form-container textarea {
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-dark);
+    border: 1px solid rgba(255,255,255,0.2);
 }
