@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -24,7 +23,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('Picture/pic3.png') center/cover no-repeat;
+            background: url('picture/pic3.png') center/cover no-repeat;
             opacity: 0.8;
             z-index: -1;
         }
@@ -188,212 +187,6 @@
         .card-3d:hover {
             transform: rotateY(10deg) rotateX(10deg);
         }
-        /* Enhanced Certificate Section Styling */
-        .certificates {
-          background: linear-gradient(135deg, var(--background), var(--card-bg));
-        }
-        
-        /* Certificate card styling with trendy effects */
-        .certificate-card {
-          position: relative;
-          background-color: var(--card-bg);
-          border-radius: var(--border-radius);
-          overflow: hidden;
-          box-shadow: var(--box-shadow);
-          transition: all 0.4s ease;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .certificate-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Animated gradient placeholder instead of static image */
-        .certificate-img {
-          height: 150px;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--mint), var(--peach));
-          background-size: 400% 400%;
-          animation: gradientBG 15s ease infinite;
-        }
-        
-        @keyframes gradientBG {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        
-        /* Trophy emoji with animation */
-        .certificate-img::before {
-          content: '🏆';
-          font-size: 3.5rem;
-          filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
-          animation: float 3s ease-in-out infinite;
-          position: relative;
-          z-index: 2;
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        /* Glow effect on hover */
-        .certificate-card:hover .certificate-img {
-          box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.3);
-        }
-        
-        .certificate-card:hover .certificate-img::before {
-          animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.1);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-        
-        /* Certificate content styling */
-        .certificate-content {
-          padding: 20px;
-          position: relative;
-          z-index: 1;
-        }
-        
-        /* Certificate title with glow effect on hover */
-        .certificate-title {
-          font-size: 1.1rem;
-          font-weight: 600;
-          margin-bottom: 8px;
-          transition: all 0.3s ease;
-        }
-        
-        .certificate-card:hover .certificate-title {
-          color: var(--primary);
-          text-shadow: 0 0 8px rgba(250, 218, 221, 0.4);
-        }
-        
-        /* Hashtag styling */
-        .certificate-hashtag {
-          display: inline-block;
-          font-size: 0.75rem;
-          color: var(--text-muted);
-          margin-top: 10px;
-          transition: all 0.3s ease;
-        }
-        
-        .certificate-hashtag span {
-          margin-right: 5px;
-          display: inline-block;
-        }
-        
-        .certificate-card:hover .certificate-hashtag {
-          color: var(--primary);
-          transform: translateX(5px);
-        }
-        
-        /* Certificate view button with animated border */
-        .view-certificate {
-          display: inline-block;
-          margin-top: 15px;
-          padding: 8px 16px;
-          border-radius: 20px;
-          font-size: 0.85rem;
-          font-weight: 500;
-          color: var(--text-dark);
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid var(--primary);
-          position: relative;
-          overflow: hidden;
-          transition: all 0.3s ease;
-          z-index: 1;
-        }
-        
-        .view-certificate:hover {
-          color: var(--accent);
-          background: var(--primary);
-          transform: translateY(-2px);
-        }
-        
-        .view-certificate::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent
-          );
-          transition: 0.5s;
-          z-index: -1;
-        }
-        
-        .certificate-card:hover .view-certificate::before {
-          left: 100%;
-          animation: shine 1.5s infinite;
-        }
-        
-        @keyframes shine {
-          0% {
-            left: -100%;
-          }
-          100% {
-            left: 100%;
-          }
-        }
-        
-        /* For the emoji animations */
-        .emoji-trophy {
-          display: inline-block;
-          margin-left: 5px;
-          animation: bounce 1s ease infinite;
-        }
-        
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
-        }
-
-        /* Tambahkan di CSS */
-        .dynamic-cursor {
-          transition: transform 0.15s, opacity 0.3s;
-          transform: scale(1);
-        }
-        
-        .dynamic-cursor.hover {
-          transform: scale(1.5);
-          background: var(--primary);
-          opacity: 0.5;
-        }
     </style>
 </head>
 <body>
@@ -425,11 +218,8 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
-        <div class="particles" id="particles-js"></div>
         <div class="container">
             <div class="hero-content fade-in bounce-in">
-                <div class="dynamic-cursor"></div>
-                <canvas id="floating-logo"></canvas>
                 <img src="Picture/pic1.jpg" alt="Profile Image" class="hero-img floating">
                 <div class="typewriter">
                     <h1 class="hero-title">Hi, I'm <span id="name">Yurida Zani</span></h1>
@@ -437,7 +227,7 @@
                 <h2 class="hero-subtitle">Web Developer <span class="emoji-highlight">✨</span> Creative Coder <span class="emoji-highlight">🚀</span></h2>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">See My Work</a>
-                    <a href="https://drive.google.com/file/d/1vONn6al36Niu9w72S3BsYJk-FBB-J6Bc/view?usp=sharing" class="btn btn-secondary">Download Resume</a>
+                    <a href="#" class="btn btn-secondary">Download Resume</a>
                 </div>
             </div>
         </div>
@@ -455,7 +245,7 @@
                     <h2>What I Do <span class="rotate-icon">🌟</span></h2>
                     <p class="emoji-text">I transform ideas into <strong>pixel-perfect</strong> reality, crafting websites that not only look great but also deliver exceptional user experiences. <span class="emoji-highlight">💯</span></p>
                     <p>My Journey in Web Development
-I began exploring the world of web development in my early 20s while studying at Universitas Muhammadiyah Sidoarjo. What started as a curiosity soon turned into a passion as I delved into the fundamentals of HTML, CSS, and JavaScript. Over time, I’ve dedicated myself to mastering various web technologies and continuously improving my skills to create meaningful and impactful digital experiences.</p>
+                        I began exploring the world of web development in my early 20s while studying at Universitas Muhammadiyah Sidoarjo. What started as a curiosity soon turned into a passion as I delved into the fundamentals of HTML, CSS, and JavaScript. Over time, I’ve dedicated myself to mastering various web technologies and continuously improving my skills to create meaningful and impactful digital experiences.</p>
                     <div class="about-quote">
                         <p>"Code is poetry written for machines but read by humans." <span class="emoji-highlight">✍️</span></p>
                     </div>
@@ -483,7 +273,7 @@ I began exploring the world of web development in my early 20s while studying at
                         <h3>Teknik Komputer dan Jaringan</h3>
                         <p class="timeline-date">2017 - 2020</p>
                         <p>SMK PGRI Pandaan</p>
-                        <p>Studied Computer and Network Engineering at SMK PGRI Pandaan, focusing on PC assembly, maintenance, and network configurations.<span class="emoji-highlight">⚡</span></p>
+                        <p>Intensive 12-week program focusing on modern web development technologies including HTML, CSS, JavaScript, React, and Node.js. <span class="emoji-highlight">⚡</span></p>
                     </div>
                 </div>
             </div>
@@ -517,9 +307,6 @@ I began exploring the world of web development in my early 20s while studying at
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-    <div class="skill-visualization">
-        <canvas id="skills-radar"></canvas>
-    </div>
         <div class="container">
             <h2 class="section-title fade-in">Skills <span class="emoji-highlight">🛠️</span></h2>
             <div class="skills-container">
@@ -615,6 +402,40 @@ I began exploring the world of web development in my early 20s while studying at
                         </div>
                     </div>
                 </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Frameworks & Libraries <span class="emoji-highlight">📚</span></h3> 
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React <i class="fab fa-react"></i></span>
+                            <span>50%</span> 
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress-width: 50%; width: 50%;"></div> 
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Vue.js <i class="fab fa-vuejs"></i></span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress-width: 50%; width: 50%;"></div> 
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>TailwindCSS <i class="fab fa-css3-alt"></i></span> 
+                            <span>85%</span> 
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress-width: 85%; width: 85%;"></div> 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -622,12 +443,6 @@ I began exploring the world of web development in my early 20s while studying at
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-        <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="web">Web</button>
-            <button class="filter-btn" data-filter="mobile">Mobile</button>
-            <button class="filter-btn" data-filter="design">Design</button>
-        </div>
             <h2 class="section-title fade-in">Projects <span class="emoji-highlight">🚀</span></h2>
             <div class="projects-grid">
                 <div class="project-card fade-in">
@@ -671,14 +486,14 @@ I began exploring the world of web development in my early 20s while studying at
                             <span>JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://web-portfolio-yurida-zani.vercel.app/"><i class="fas fa-link"></i> Live Demo</a>
+                            <a href="#"><i class="fas fa-link"></i> Live Demo</a>
                             <a href="#"><i class="fab fa-github"></i> Source Code</a>
                         </div>
                     </div>
                     <div class="project-overlay">
                         <div class="project-overlay-content">
                             <h3>Check it out! <span class="emoji-highlight">✨</span></h3>
-                            <a href="https://web-portfolio-yurida-zani.vercel.app/" class="btn">View Project</a>
+                            <a href="#" class="btn">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -817,6 +632,29 @@ I began exploring the world of web development in my early 20s while studying at
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title fade-in">Let's Connect <span class="emoji-highlight">📱</span></h2>
+
+            <div class="contact-form-container" style="margin-bottom: 40px; padding: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                <h3 style="text-align: center; margin-bottom: 20px; color: var(--accent);">Send Me a Message <span class="emoji-highlight">📬</span></h3>
+                <form id="contact-form-google"> 
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="gform-name" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Full Name</label>
+                        <input type="text" name="entry.1344532956" id="gform-name" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="gform-email" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Email Address</label>
+                        <input type="email" name="entry.203179292" id="gform-email" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="gform-message" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Message</label>
+                        <textarea name="entry.827528626" id="gform-message" rows="5" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+                <p id="gform-status" style="text-align:center; margin-top:15px; font-weight: bold;"></p>
+            </div>
+
             <div class="social-card fade-in bounce-in">
                 <h3>Find me on social media</h3>
                 <div class="social-links" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
@@ -841,105 +679,170 @@ I began exploring the world of web development in my early 20s while studying at
         <i class="fas fa-moon"></i>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     <script>
-        // Loading Animation
-        window.addEventListener('load', function() {
-            const loader = document.querySelector('.loader');
-            setTimeout(function() {
-                loader.classList.add('fade-out');
-            }, 1000);
-        });
+    // --- Konfigurasi dan Inisialisasi Firebase ---
+    // (BAGIAN INI DINONAKTIFKAN KARENA FOKUS KE GOOGLE FORM)
+    /*
+    const firebaseConfig = {
+        apiKey: "ISI_DENGAN_API_KEY_ASLI_JIKA_MAU_PAKAI_FIREBASE",
+        authDomain: "web-portfolio-yurida-zani.firebaseapp.com",
+        projectId: "web-portfolio-yurida-zani",
+        storageBucket: "web-portfolio-yurida-zani.firebasestorage.app",
+        messagingSenderId: "263706343173",
+        appId: "1:263706343173:web:a3ccc2883a9c024f65296c"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    */
 
-        // Navigation Toggle
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-        });
+    // --- Firebase Form Submission ---
+    // (BAGIAN INI DINONAKTIFKAN KARENA FOKUS KE GOOGLE FORM)
+    /*
+    const contactForm = document.getElementById('contact-form'); // ID ini tidak cocok dengan form Google
+    const formStatus = document.getElementById('form-status'); // ID ini tidak cocok
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            const submitButton = contactForm.querySelector('button');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !message) {
+                formStatus.textContent = 'Please fill in all fields.';
+                formStatus.style.color = 'red';
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                formStatus.textContent = 'Please enter a valid email address.';
+                formStatus.style.color = 'red';
+                return;
+            }
+
+            formStatus.textContent = 'Sending your message... 📨';
+            formStatus.style.color = 'var(--text-muted)';
+            submitButton.disabled = true;
+
+            db.collection('contacts').add({
+                name,
+                email,
+                message,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                formStatus.textContent = 'Message sent successfully! Thank you! 🎉';
+                formStatus.style.color = 'green';
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+                formStatus.textContent = 'Sorry, an error occurred. Please try again. 😕';
+                formStatus.style.color = 'red';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                setTimeout(() => { formStatus.textContent = ''; }, 5000);
+            });
+        });
+    }
+    */
+
+    // --- Google Form Submission ---
+    // PASTIKAN BLOK INI AKTIF DAN BENAR
+    // Di JavaScript-mu, ini sudah benar:
+    const GOOGLE_FORM_ID = '1FAIpQLSdWJNRSwVRIfTPG5o8sTA_xeQaWG-bmccVHiuC8tkpX7LR6cg';
+    const GOOGLE_FORM_ACTION_URL = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+
+    // Pastikan ID form di HTML adalah 'contact-form-google'
+    const contactFormGoogle = document.getElementById('contact-form-google');
+    // Pastikan ID elemen status di HTML adalah 'gform-status'
+    const gformStatus = document.getElementById('gform-status');
+
+    if (contactFormGoogle) {
+        contactFormGoogle.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Mencegah submit form HTML standar
+
+            const submitButton = contactFormGoogle.querySelector('button[type="submit"]');
+            const formData = new FormData(contactFormGoogle);
+
+            // Validasi sisi klien (sesuaikan nama 'entry' jika berbeda di HTML-mu)
+            const name = formData.get('entry.1344532956'); // ID entry untuk Nama dari Google Form-mu
+            const email = formData.get('entry.203179292'); // ID entry untuk Email dari Google Form-mu
+            const message = formData.get('entry.827528626'); // ID entry untuk Pesan dari Google Form-mu
+
+            if (!name || !email || !message) {
+                if (gformStatus) {
+                    gformStatus.textContent = 'Please fill in all fields.';
+                    gformStatus.style.color = 'red';
+                }
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                if (gformStatus) {
+                    gformStatus.textContent = 'Please enter a valid email address.';
+                    gformStatus.style.color = 'red';
+                }
+                return;
+            }
+
+            if (gformStatus) {
+                gformStatus.textContent = 'Sending your message... 📨';
+                gformStatus.style.color = 'var(--text-muted)';
+            }
+            if (submitButton) {
+                submitButton.disabled = true;
+            }
+
+            try {
+                await fetch(GOOGLE_FORM_ACTION_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Penting untuk Google Forms
+                    body: formData,
                 });
-            });
-        });
 
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const appearOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -100px 0px"
-        };
+                if (gformStatus) {
+                    gformStatus.textContent = 'Message sent successfully! Thank you! 🎉';
+                    gformStatus.style.color = 'green';
+                }
+                contactFormGoogle.reset(); // Kosongkan form
 
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('active');
-                appearOnScroll.unobserve(entry.target);
-            });
-        }, appearOptions);
-
-        fadeElements.forEach(element => {
-            appearOnScroll.observe(element);
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            } catch (error) {
+                console.error('Error submitting to Google Form:', error);
+                if (gformStatus) {
+                    gformStatus.textContent = 'Sorry, an error occurred. Please try again. 😕';
+                    gformStatus.style.color = 'red';
+                }
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+                if (gformStatus) {
+                    setTimeout(() => { if (gformStatus) gformStatus.textContent = ''; }, 5000);
+                }
             }
         });
+    } else {
+        console.error("PENTING: Form dengan ID 'contact-form-google' tidak ditemukan di HTML-mu! Pastikan ID form sudah benar.");
+    }
+    if (!gformStatus) {
+        console.warn("Info: Elemen status dengan ID 'gform-status' tidak ditemukan di HTML-mu. Pesan status tidak akan muncul.");
+    }
 
-        // Dark Mode Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        });
-
-        // Active Navigation Link
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', function() {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Typewriter effect for name
-        const nameElement = document.getElementById('name');
-        const nameText = "Yurida Zani"; // Replace with your actual name
+    // --- Animasi Typewriter ---
+    const nameElement = document.getElementById('name');
+    if (nameElement) {
+        const nameText = "Yurida Zani";
         let i = 0;
-        
+        nameElement.textContent = ""; // Kosongkan dulu sebelum animasi
         function typeWriter() {
             if (i < nameText.length) {
                 nameElement.textContent += nameText.charAt(i);
@@ -947,157 +850,175 @@ I began exploring the world of web development in my early 20s while studying at
                 setTimeout(typeWriter, 100);
             }
         }
-        
-        // Clear the initial text before starting the animation
-        nameElement.textContent = "";
-        setTimeout(typeWriter, 1000);
+        setTimeout(typeWriter, 1000); // Mulai animasi setelah 1 detik
+    }
 
-        // 3D card effect
-        const cards = document.querySelectorAll('.card-3d');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const xRotation = ((y - rect.height / 2) / 15) * -1;
-                const yRotation = (x - rect.width / 2) / 15;
-                
-                this.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
-            });
-            
-            card.addEventListener('mouseout', function() {
-                this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-            });
+    // --- Loading Animation ---
+    window.addEventListener('load', function() {
+        const loader = document.querySelector('.loader');
+        if (loader) {
+            setTimeout(function() {
+                loader.classList.add('fade-out');
+            }, 1000); // Waktu loading, sesuaikan jika perlu
+        }
+    });
+
+    // --- Navigation Toggle (Menu Mobile) ---
+    const navToggle = document.querySelector('.nav-toggle');
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu) navMenu.classList.toggle('active');
         });
-        
-        // Skill animation
-        const skillBars = document.querySelectorAll('.skill-progress');
-        const skillOptions = {
-            threshold: 0.5
-        };
-        
-        const animateSkills = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                
-                const skillBar = entry.target;
-                const width = skillBar.style.getPropertyValue('--progress-width');
-                
-                skillBar.style.width = "0";
-                setTimeout(() => {
-                    skillBar.style.width = width;
-                }, 200);
-                
-                observer.unobserve(skillBar);
-            });
-        }, skillOptions);
-        
-        skillBars.forEach(bar => {
-            animateSkills.observe(bar);
+    }
+
+    // --- Smooth Scrolling untuk Link Navigasi ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Tutup menu mobile jika terbuka (opsional)
+                const navMenu = document.querySelector('.nav-menu.active');
+                if (navMenu) {
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    // --- Scroll Animation (Fade-in Elements) ---
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+        threshold: 0.15, // Seberapa banyak elemen terlihat sebelum animasi
+        rootMargin: "0px 0px -100px 0px" // Offset untuk trigger
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Hentikan observasi setelah animasi
+        });
+    }, appearOptions);
+
+    fadeElements.forEach(element => {
+        appearOnScroll.observe(element);
+    });
+
+    // --- Header Scroll Effect ---
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    });
+
+    // --- Dark Mode Toggle ---
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        const themeIcon = themeToggle.querySelector('i');
+        // Cek preferensi tema dari localStorage saat halaman dimuat
+        if (localStorage.getItem('theme') === 'dark-mode') {
+            document.body.classList.add('dark-mode');
+            if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark-mode'); // Simpan preferensi
+            } else {
+                if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light-mode'); // Simpan preferensi
+            }
+        });
+    }
+
+    // --- Active Navigation Link on Scroll ---
+    const sections = document.querySelectorAll('section[id]'); // Pastikan section punya ID
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+
+    window.addEventListener('scroll', function() {
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Memberi sedikit offset agar link aktif sebelum section persis di atas
+            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                currentSectionId = section.getAttribute('id');
+            }
         });
 
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            // Hapus '/' di awal href jika ada, agar cocok dengan ID section
+            const linkHref = link.getAttribute('href').substring(1); 
+            if (linkHref === currentSectionId) {
+                link.classList.add('active');
+            }
+        });
+    });
 
-// Tambahkan di bagian JavaScript
-// Interactive Cursor
-document.addEventListener('mousemove', (e) => {
-    const cursor = document.querySelector('.dynamic-cursor');
-    cursor.style.left = `${e.clientX - 15}px`;
-    cursor.style.top = `${e.clientY - 15}px`;
-});
+    // --- 3D Card Effect ---
+    const cards3D = document.querySelectorAll('.card-3d'); // Mengubah nama variabel agar tidak konflik
+    cards3D.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const xRotation = ((y - rect.height / 2) / 15) * -1; // Atur sensitivitas
+            const yRotation = (x - rect.width / 2) / 15;  // Atur sensitivitas
+            this.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
+        });
 
-// Project Filter
-document.querySelectorAll('.filter-btn').forEach(button => {
-  button.addEventListener('click', function() {
-    const filter = this.dataset.filter;
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.style.display = 
-        (filter === 'all' || card.dataset.category === filter) ? 
-        'block' : 'none';
+        card.addEventListener('mouseleave', function() { // Mengganti 'mouseout' dengan 'mouseleave' untuk UX yang lebih baik
+            this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
     });
     
-    // Update tombol aktif
-    document.querySelectorAll('.filter-btn').forEach(btn => 
-      btn.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
+    // --- Skill Animation (Intersection Observer) ---
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillOptions = {
+        threshold: 0.5 // Seberapa banyak elemen terlihat sebelum animasi
+    };
+    
+    const animateSkills = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+            const skillBar = entry.target;
+            // Ambil target width dari custom property CSS
+            const targetWidth = skillBar.style.getPropertyValue('--progress-width'); 
+            
+            skillBar.style.width = "0%"; // Mulai dari 0
+            // Beri sedikit delay agar transisi CSS terlihat
+            setTimeout(() => {
+                skillBar.style.width = targetWidth; // Animasikan ke target width
+            }, 100); // Sedikit delay untuk memastikan DOM update
+            
+            observer.unobserve(skillBar); // Hentikan observasi setelah animasi
+        });
+    }, skillOptions);
+    
+    skillBars.forEach(bar => {
+        animateSkills.observe(bar);
+    });
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ 
-  canvas: document.querySelector('#floating-logo'),
-  alpha: true 
-});
-
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshBasicMaterial({ 
-  color: 0xFF69B4,
-  wireframe: true 
-});
-const torus = new THREE.Mesh(geometry, material);
-scene.add(torus);
-
-camera.position.z = 50;
-
-function animate() {
-  requestAnimationFrame(animate);
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.01;
-  renderer.render(scene, camera);
-}
-animate();
-
-
-
-// Skills Radar Chart
-const skillsChart = new Chart(document.getElementById('skills-radar'), {
-    type: 'radar',
-    data: {
-        labels: ['HTML', 'CSS', 'JS', 'PHP', 'Design'],
-        datasets: [{
-            data: [95, 90, 85, 80, 75],
-            backgroundColor: 'rgba(250, 218, 221, 0.2)',
-            borderColor: 'var(--primary)'
-        }]
-    }
-});
-
-// Scroll Reveal
-ScrollReveal().reveal('.section-title, .project-card, .certificate-card', {
-    delay: 300,
-    distance: '50px',
-    origin: 'bottom',
-    interval: 200
-});
-
-// Particle.js Initialization
-particlesJS('particles-js', {
-  particles: {
-    number: { value: 80 },
-    size: { value: 3 },
-    color: { value: '#FADADD' },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: '#FADADD',
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 6,
-      direction: "none",
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false
-    }
-  }
-});
     </script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
