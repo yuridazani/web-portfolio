@@ -341,3 +341,41 @@ img { max-width: 100%; display: block; }
     .nav-toggle { display: block; z-index: 1001; } /* Placeholder for mobile menu logic */
     .nav-menu { display: none; } /* Placeholder for mobile menu logic */
 }
+/* ======= RESPONSIVE FIX: Hero Buttons & Mobile Nav ======= */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--surface-light);
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: var(--shadow-md);
+    border-top: 1px solid var(--border-light);
+    z-index: 1000;
+  }
+
+  .nav-link.btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+}
+
