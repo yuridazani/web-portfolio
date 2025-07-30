@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer Portfolio</title>
+    <title>Yurida Zani — Web Developer</title>
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://unpkg.com https://www.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
@@ -15,7 +15,9 @@
         object-src 'none';
         base-uri 'self';
     ">
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -30,426 +32,306 @@
     </div>
 
     <header class="header">
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">Yurida Zani<span class="emoji-highlight">💻</span></div>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
-                    <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#certificates" class="nav-link">Certificates</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
+        <div class="container nav-container">
+            <a href="#" class="logo">Y/Z</a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link btn">Let's Talk</a>
+            </nav>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <section id="hero" class="hero">
-        <div class="container">
-            <div class="hero-content fade-in bounce-in">
-                <img src="Picture/pic1.jpg" alt="Profile Image" class="hero-img floating">
-                <div class="typewriter">
-                    <h1 class="hero-title">Hi, I'm <span id="name">Yurida Zani</span></h1>
-                </div>
-                <h2 class="hero-subtitle">Web Developer <span class="emoji-highlight">✨</span> Creative Coder <span class="emoji-highlight">🚀</span></h2>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn">See My Work</a>
-                    <a href="https://drive.google.com/file/d/1vONn6al36Niu9w72S3BsYJk-FBB-J6Bc/view?usp=drive_link" class="btn btn-secondary">Download Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me <span class="emoji-highlight">👋</span></h2>
-            <div class="about-container">
-                <div class="about-img fade-in card-3d">
-                    <img src="Picture/pic2.jpg" alt="About Me Image">
-                </div>
-                <div class="about-content fade-in">
-                    <h2>What I Do <span class="rotate-icon">🌟</span></h2>
-                    <p class="emoji-text">I transform ideas into <strong>pixel-perfect</strong> reality, crafting websites that not only look great but also deliver exceptional user experiences. <span class="emoji-highlight">💯</span></p>
-                    <p>My Journey in Web Development
-                        I began exploring the world of web development in my early 20s while studying at Universitas Muhammadiyah Sidoarjo. What started as a curiosity soon turned into a passion as I delved into the fundamentals of HTML, CSS, and JavaScript. Over time, I’ve dedicated myself to mastering various web technologies and continuously improving my skills to create meaningful and impactful digital experiences.</p>
-                    <div class="about-quote">
-                        <p>"Code is poetry written for machines but read by humans." <span class="emoji-highlight">✍️</span></p>
-                    </div>
-                    <p>When I'm not coding, you can find me playing video games <span class="emoji-highlight">🎮</span>, listening to lo-fi music <span class="emoji-highlight">🎧</span>, or exploring new coffee shops <span class="emoji-highlight">☕</span>. These activities help me stay creative and bring fresh perspectives to my work.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title fade-in">Education <span class="emoji-highlight">🎓</span></h2>
-            <div class="timeline">
-                <div class="timeline-item fade-in card-3d">
-                    <div class="timeline-content">
-                        <h3>Bachelor of Computer Science</h3>
-                        <p class="timeline-date">2022 - 2026</p>
-                        <p>Universitas Muhammadiyah Sidoarjo</p>
-                        <p>Studied fundamental computer science concepts, algorithms, data structures, and web development technologies. <span class="emoji-highlight">💻</span></p>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-grid">
+                <div class="hero-text-content">
+                    <h1 class="hero-title">
+                        <span>Creative</span>
+                        <span>Developer</span>
+                        <span>Based in ID.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        I build pixel-perfect, engaging, and accessible digital experiences. I am passionate about modern web technology and clean design.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://drive.google.com/file/d/1vONn6al36Niu9w72S3BsYJk-FBB-J6Bc/view?usp=drive_link" class="btn btn-primary">Download Resume</a>
+                        <a href="https://github.com/yuridazani" class="btn btn-secondary">View GitHub</a>
                     </div>
                 </div>
-                <div class="timeline-item fade-in card-3d">
-                    <div class="timeline-content">
-                        <h3>Teknik Komputer dan Jaringan</h3>
-                        <p class="timeline-date">2017 - 2020</p>
-                        <p>SMK PGRI Pandaan</p>
-                        <p>Intensive 12-week program focusing on modern web development technologies including HTML, CSS, JavaScript, React, and Node.js. <span class="emoji-highlight">⚡</span></p>
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-card">
+                        <img src="Picture/pic1.jpg" alt="A photo of Yurida Zani" class="hero-img floating">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title fade-in">Experience <span class="emoji-highlight">💼</span></h2>
-            <div class="timeline">
-                <div class="timeline-item fade-in card-3d">
-                    <div class="timeline-content">
-                        <h3>Web Developer Intership</h3>
-                        <p class="timeline-date">Aug 2024 - Aug 2024</p>
-                        <p>PT Aneka Coffee Industri</p>
-                        <p>I led the front-end development and UI/UX design of the ACI Audit Portal, ensuring high-quality execution while managing data needs for accurate project content. Additionally, I directed the ACI Web Development internship team, fostering collaboration and driving project success through effective leadership.<span class="emoji-highlight">🚀</span></p>
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title fade-in">About Me <span class="emoji-highlight">👋</span></h2>
+                <div class="about-container">
+                    <div class="about-img fade-in card-3d">
+                        <img src="Picture/pic2.jpg" alt="Yurida Zani in a field">
                     </div>
-                </div>
-                <div class="timeline-item fade-in card-3d">
-                    <div class="timeline-content">
-                        <h3>Accounting Assistan Inter</h3>
-                        <p class="timeline-date">Jan 2019 - Apr 2019</p>
-                        <p>PT Tirta Sukses Perkasa Plant Sukorejo</p>
-                        <p>I managed and organized financial and administrative files, ensuring accurate and up-to-date documentation for smooth operations. Working closely with the accounting team, I assisted in payment and billing processes, contributing to timely and error-free transactions. Additionally, I supported daily administrative tasks, maintaining efficient and accessible records to enhance overall workflow and organization. <span class="emoji-highlight">🔍</span></p>
+                    <div class="about-content fade-in">
+                        <h2>What I Do <span class="rotate-icon">🌟</span></h2>
+                        <p class="emoji-text">I transform ideas into <strong>pixel-perfect</strong> reality, crafting websites that not only look great but also deliver exceptional user experiences. <span class="emoji-highlight">💯</span></p>
+                        <p>My Journey in Web Development
+                            I began exploring the world of web development in my early 20s while studying at Universitas Muhammadiyah Sidoarjo. What started as a curiosity soon turned into a passion as I delved into the fundamentals of HTML, CSS, and JavaScript. Over time, I've dedicated myself to mastering various web technologies and continuously improving my skills to create meaningful and impactful digital experiences.</p>
+                        <div class="about-quote">
+                            <p>"Code is poetry written for machines but read by humans." <span class="emoji-highlight">✍️</span></p>
+                        </div>
+                        <p>When I'm not coding, you can find me playing video games <span class="emoji-highlight">🎮</span>, listening to lo-fi music <span class="emoji-highlight">🎧</span>, or exploring new coffee shops <span class="emoji-highlight">☕</span>. These activities help me stay creative and bring fresh perspectives to my work.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title fade-in">Skills <span class="emoji-highlight">🛠️</span></h2>
-            <div class="skills-container">
-                <div class="skill-category fade-in">
-                    <h3>Most Skills <span class="emoji-highlight">💪</span></h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>HTML <i class="fab fa-html5"></i></span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 95%; width: 95%;"></div>
+        <section id="education" class="education">
+            <div class="container">
+                <h2 class="section-title fade-in">Education <span class="emoji-highlight">🎓</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in card-3d">
+                        <div class="timeline-content">
+                            <h3>Bachelor of Computer Science</h3>
+                            <p class="timeline-date">2022 - 2026</p>
+                            <p>Universitas Muhammadiyah Sidoarjo</p>
+                            <p>Studied fundamental computer science concepts, algorithms, data structures, and web development technologies. <span class="emoji-highlight">💻</span></p>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>CSS <i class="fab fa-css3-alt"></i></span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 90%; width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>JavaScript <i class="fab fa-js"></i></span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 85%; width: 85%;"></div>
+                    <div class="timeline-item fade-in card-3d">
+                        <div class="timeline-content">
+                            <h3>Teknik Komputer dan Jaringan</h3>
+                            <p class="timeline-date">2017 - 2020</p>
+                            <p>SMK PGRI Pandaan</p>
+                            <p>Intensive 12-week program focusing on modern web development technologies including HTML, CSS, JavaScript, React, and Node.js. <span class="emoji-highlight">⚡</span></p>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title fade-in">Experience <span class="emoji-highlight">💼</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in card-3d">
+                        <div class="timeline-content">
+                            <h3>Web Developer Intership</h3>
+                            <p class="timeline-date">Aug 2024 - Aug 2024</p>
+                            <p>PT Aneka Coffee Industri</p>
+                            <p>I led the front-end development and UI/UX design of the ACI Audit Portal, ensuring high-quality execution while managing data needs for accurate project content. Additionally, I directed the ACI Web Development internship team, fostering collaboration and driving project success through effective leadership.<span class="emoji-highlight">🚀</span></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in card-3d">
+                        <div class="timeline-content">
+                            <h3>Accounting Assistan Inter</h3>
+                            <p class="timeline-date">Jan 2019 - Apr 2019</p>
+                            <p>PT Tirta Sukses Perkasa Plant Sukorejo</p>
+                            <p>I managed and organized financial and administrative files, ensuring accurate and up-to-date documentation for smooth operations. Working closely with the accounting team, I assisted in payment and billing processes, contributing to timely and error-free transactions. Additionally, I supported daily administrative tasks, maintaining efficient and accessible records to enhance overall workflow and organization. <span class="emoji-highlight">🔍</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title fade-in">Selected Projects <span class="emoji-highlight">🚀</span></h2>
+                <div class="bento-grid">
+                    <div class="project-card card-large fade-in">
+                        <a href="https://www.aciauditportal.site/" target="_blank" class="project-link-wrapper">
+                            <img src="Picture/pic4.png" alt="ACI Audit Portal project screenshot" class="project-img">
+                            <div class="project-overlay">
+                                <h3>ACI - Audit Portal</h3>
+                                <p>Integrated audit portal for a major coffee industry.</p>
+                                <div class="project-tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-card card-small fade-in">
+                        <a href="https://www.figma.com/design/8Nxe7Q2VwBtDdHdJUj4Yg0/KUMA-RPL?node-id=507-2979&t=CViyZhtnnbQqaM2g-1" target="_blank" class="project-link-wrapper">
+                            <img src="Picture/kuma-figma.png" alt="KUMA Figma Design" class="project-img">
+                            <div class="project-overlay">
+                                <h3>KUMA (UI/UX Design)</h3>
+                                <p>Figma design for a boarding house management system.</p>
+                                <div class="project-tags"><span>Figma</span><span>UI/UX</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-card card-small fade-in">
+                        <a href="https://www.sdnandonosari1.my.id/" target="_blank" class="project-link-wrapper">
+                            <img src="Picture/web.jpeg" alt="SDN Andonosari 1 project screenshot" class="project-img">
+                            <div class="project-overlay">
+                                <h3>School Profile Website</h3>
+                                <p>A digital presence for a rural elementary school.</p>
+                                <div class="project-tags"><span>PHP</span><span>CSS</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-card card-wide fade-in">
+                        <div class="project-content-only">
+                            <h3>Have a project in mind?</h3>
+                            <p>Let's build something amazing together.</p>
+                            <a href="#contact" class="btn btn-primary">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title fade-in">My Tech Stack <span class="emoji-highlight">🛠️</span></h2>
+                <div class="skills-wrapper">
+                    <div class="skill-category fade-in">
+                        <h3>Core Technologies <span class="emoji-highlight">💪</span></h3>
+                        <div class="skill-tags">
+                            <span>HTML5 <i class="fab fa-html5"></i></span>
+                            <span>CSS3 <i class="fab fa-css3-alt"></i></span>
+                            <span>JavaScript (ES6+) <i class="fab fa-js"></i></span>
                             <span>PHP <i class="fab fa-php"></i></span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 80%; width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
                             <span>MySQL <i class="fas fa-database"></i></span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 75%; width: 75%;"></div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="skill-category fade-in">
-                    <h3>Least Skills <span class="emoji-highlight">🌱</span></h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
+                    <div class="skill-category fade-in">
+                        <h3>Frameworks & Libraries <span class="emoji-highlight">📚</span></h3>
+                        <div class="skill-tags">
+                            <span>Tailwind CSS</span>
+                            <span>Bootstrap</span>
+                            <span>React (Learning) <i class="fab fa-react"></i></span>
+                            <span>Vue.js (Learning) <i class="fab fa-vuejs"></i></span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Tools & Platforms <span class="emoji-highlight">🧰</span></h3>
+                        <div class="skill-tags">
+                            <span>Git & GitHub <i class="fab fa-github"></i></span>
                             <span>Figma <i class="fab fa-figma"></i></span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 70%; width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
+                            <span>VS Code <i class="fas fa-code"></i></span>
                             <span>Canva <i class="fas fa-palette"></i></span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 65%; width: 65%;"></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category fade-in">
-                    <h3>Tools <span class="emoji-highlight">🧰</span></h3>
-                    <div class="tools-grid">
-                        <div class="tool-item card-3d">
-                            <i class="tool-icon fab fa-github"></i>
-                            <span>Git</span>
-                        </div>
-                        <div class="tool-item card-3d">
-                            <i class="tool-icon fas fa-code"></i>
-                            <span>VSCode</span>
-                        </div>
-                        <div class="tool-item card-3d">
-                            <i class="tool-icon fab fa-figma"></i>
-                            <span>Figma</span>
-                        </div>
-                        <div class="tool-item card-3d">
-                            <i class="tool-icon fas fa-palette"></i>
-                            <span>Canva</span>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </section>
 
-                <div class="skill-category fade-in">
-                    <h3>Frameworks & Libraries <span class="emoji-highlight">📚</span></h3> 
-                    
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>React <i class="fab fa-react"></i></span>
-                            <span>50%</span> 
+        <section id="certificates" class="certificates">
+            <div class="container">
+                <h2 class="section-title fade-in">Certificates <span class="emoji-highlight">🏆</span></h2>
+                <div class="certificates-grid">
+                    <div class="certificate-card fade-in card-3d">
+                        <div class="certificate-img">
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 50%; width: 50%;"></div> 
-                        </div>
-                    </div>
-
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Vue.js <i class="fab fa-vuejs"></i></span>
-                            <span>50%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 50%; width: 50%;"></div> 
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Belajar Dasar Manajemen Proyek</h3>
+                            <p class="certificate-issuer">Dicoding Indonesia</p>
+                            <p class="certificate-date">Sept 2024 - Sept 2027</p>
+                            <p class="certificate-id">Credential ID: 1OP8W8R9LXQK</p>
+                            <div class="certificate-hashtag">
+                                <span>#ProjectManagement</span>
+                                <span>#Dicoding</span>
+                            </div>
+                            <a href="https://www.dicoding.com/certificates/1OP8W8R9LXQK" class="view-certificate" target="_blank">
+                                View Certificate <i class="fas fa-external-link-alt"></i>
+                                <span class="emoji-trophy">🏆</span>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>TailwindCSS <i class="fab fa-css3-alt"></i></span> 
-                            <span>85%</span> 
+                    <div class="certificate-card fade-in card-3d">
+                        <div class="certificate-img">
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="--progress-width: 85%; width: 85%;"></div> 
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Belajar Dasar Visualisasi Data</h3>
+                            <p class="certificate-issuer">Dicoding Indonesia</p>
+                            <p class="certificate-date">Feb 2024 - Feb 2027</p>
+                            <p class="certificate-id">Credential ID: L4PQQ28E2PO1</p>
+                            <div class="certificate-hashtag">
+                                <span>#DataViz</span>
+                                <span>#Analytics</span>
+                            </div>
+                            <a href="https://www.dicoding.com/certificates/L4PQQ28E2PO1" class="view-certificate" target="_blank">
+                                View Certificate <i class="fas fa-external-link-alt"></i>
+                                <span class="emoji-trophy">🏆</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card fade-in card-3d">
+                        <div class="certificate-img">
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Memulai Pemrograman dengan Python</h3>
+                            <p class="certificate-issuer">Dicoding Indonesia</p>
+                            <p class="certificate-date">Feb 2024 - Feb 2027</p>
+                            <p class="certificate-id">Credential ID: EYX40KGROPDL</p>
+                            <div class="certificate-hashtag">
+                                <span>#Python</span>
+                                <span>#Coding</span>
+                            </div>
+                            <a href="https://www.dicoding.com/certificates/EYX40KGROPDL" class="view-certificate" target="_blank">
+                                View Certificate <i class="fas fa-external-link-alt"></i>
+                                <span class="emoji-trophy">🏆</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Projects <span class="emoji-highlight">🚀</span></h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in" style="grid-column: span 4; grid-row: span 2;">
-                    <div class="project-img">
-                        <img src="Picture/pic4.png" alt="ACI Audit Portal">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ACI - AUDIT PORTAL</h3>
-                        <p>An integrated audit portal to improve efficiency and transparency in managing audit documents at PT Aneka Coffee Industry.</p>
-                        <div class="project-tech">
-                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://www.aciauditportal.site/"><i class="fas fa-link"></i> Live Demo</a>
-                            <a href="https://github.com/yuridazani/ACI-Audit-Portal"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
-                </div>
+        <section id="contact" class="contact">
+            <div class="container contact-container">
+                <h2 class="section-title fade-in">Get In Touch <span class="emoji-highlight">📱</span></h2>
+                <p class="contact-subtitle fade-in">Have a question or a project in mind? I'd love to hear from you. <br>Fill out the form or email me directly at <strong>yuridazani.personal@gmail.com</strong> <span class="emoji-highlight">📧</span></p>
                 
-                <div class="project-card fade-in" style="grid-column: span 2; grid-row: span 1;">
-                    <div class="project-img">
-                        <img src="Picture/web.jpeg" alt="Project 1">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">School Profile Website</h3>
-                        <p>A school profile website as a "Teknologi Tepat Guna" implementation to improve digital presence.</p>
-                        <div class="project-tech">
-                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+                <div class="contact-form-container fade-in" style="margin-bottom: 40px; padding: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <form id="contact-form-google" class="contact-form"> 
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="gform-name" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Full Name</label>
+                            <input type="text" name="entry.1344532956" id="gform-name" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);">
                         </div>
-                        <div class="project-links">
-                            <a href="https://www.sdnandonosari1.my.id/"><i class="fas fa-link"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Source Code</a>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="gform-email" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Email Address</label>
+                            <input type="email" name="entry.203179292" id="gform-email" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);">
                         </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in" style="grid-column: span 2; grid-row: span 1;">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/200" alt="KUMA">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">KUMA - Sistem Manajemen Kost</h3>
-                        <p>A web-based system to assist property owners in managing boarding houses efficiently.</p>
-                        <div class="project-tech">
-                           <span>HTML</span><span>CSS</span><span>PHP</span><span>MySQL</span><span>Figma</span>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="gform-message" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Message</label>
+                            <textarea name="entry.827528626" id="gform-message" rows="5" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);"></textarea>
                         </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i> Live Demo</a>
-                            <a href="https://github.com/yuridazani/KUMA-RPL"><i class="fab fa-github"></i> Source Code</a>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
                         </div>
-                    </div>
+                    </form>
+                    <p id="gform-status" style="text-align:center; margin-top:15px; font-weight: bold;"></p>
                 </div>
 
-                <div class="project-card fade-in" style="grid-column: span 6; grid-row: span 2;">
-                    <div class="project-img">
-                        <img src="Picture/pic5.png" alt="Portfolio Website">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">This Portfolio Website</h3>
-                        <p>My personal portfolio website with a clean and modern design, showcasing projects and skills, built from scratch.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
+                <div class="social-card fade-in bounce-in">
+                    <h3>Find me on social media</h3>
+                    <div class="social-links" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                        <a href="https://github.com/yuridazani" class="social-link card-3d"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/yurida-zani-b35321211/" class="social-link card-3d"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/saturdayyuri" class="social-link card-3d"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-<section id="certificates" class="certificates">
-    <div class="container">
-        <h2 class="section-title fade-in">Certificates <span class="emoji-highlight">🏆</span></h2>
-        <div class="certificates-grid">
-            <div class="certificate-card fade-in card-3d">
-                <div class="certificate-img">
-                    </div>
-                <div class="certificate-content">
-                    <h3 class="certificate-title">Belajar Dasar Manajemen Proyek</h3>
-                    <p class="certificate-issuer">Dicoding Indonesia</p>
-                    <p class="certificate-date">Sept 2024 - Sept 2027</p>
-                    <p class="certificate-id">Credential ID: 1OP8W8R9LXQK</p>
-                    <div class="certificate-hashtag">
-                        <span>#ProjectManagement</span>
-                        <span>#Dicoding</span>
-                    </div>
-                    <a href="https://www.dicoding.com/certificates/1OP8W8R9LXQK" class="view-certificate" target="_blank">
-                        View Certificate <i class="fas fa-external-link-alt"></i>
-                        <span class="emoji-trophy">🏆</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="certificate-card fade-in card-3d">
-                <div class="certificate-img">
-                    </div>
-                <div class="certificate-content">
-                    <h3 class="certificate-title">Belajar Dasar Visualisasi Data</h3>
-                    <p class="certificate-issuer">Dicoding Indonesia</p>
-                    <p class="certificate-date">Feb 2024 - Feb 2027</p>
-                    <p class="certificate-id">Credential ID: L4PQQ28E2PO1</p>
-                    <div class="certificate-hashtag">
-                        <span>#DataViz</span>
-                        <span>#Analytics</span>
-                    </div>
-                    <a href="https://www.dicoding.com/certificates/L4PQQ28E2PO1" class="view-certificate" target="_blank">
-                        View Certificate <i class="fas fa-external-link-alt"></i>
-                        <span class="emoji-trophy">🏆</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="certificate-card fade-in card-3d">
-                <div class="certificate-img">
-                    </div>
-                <div class="certificate-content">
-                    <h3 class="certificate-title">Memulai Pemrograman dengan Python</h3>
-                    <p class="certificate-issuer">Dicoding Indonesia</p>
-                    <p class="certificate-date">Feb 2024 - Feb 2027</p>
-                    <p class="certificate-id">Credential ID: EYX40KGROPDL</p>
-                    <div class="certificate-hashtag">
-                        <span>#Python</span>
-                        <span>#Coding</span>
-                    </div>
-                    <a href="https://www.dicoding.com/certificates/EYX40KGROPDL" class="view-certificate" target="_blank">
-                        View Certificate <i class="fas fa-external-link-alt"></i>
-                        <span class="emoji-trophy">🏆</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Let's Connect <span class="emoji-highlight">📱</span></h2>
-
-            <div class="contact-form-container" style="margin-bottom: 40px; padding: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
-                <h3 style="text-align: center; margin-bottom: 20px; color: var(--accent);">Send Me a Message <span class="emoji-highlight">📬</span></h3>
-                <form id="contact-form-google"> 
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="gform-name" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Full Name</label>
-                        <input type="text" name="entry.1344532956" id="gform-name" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="gform-email" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Email Address</label>
-                        <input type="email" name="entry.203179292" id="gform-email" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="gform-message" style="display: block; margin-bottom: 5px; color: var(--text-dark);">Message</label>
-                        <textarea name="entry.827528626" id="gform-message" rows="5" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background-color: rgba(255,255,255,0.7);"></textarea>
-                    </div>
-                    <div style="text-align: center;">
-                        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </form>
-                <p id="gform-status" style="text-align:center; margin-top:15px; font-weight: bold;"></p>
-            </div>
-
-            <div class="social-card fade-in bounce-in">
-                <h3>Find me on social media</h3>
-                <div class="social-links" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-                    <a href="https://github.com/yuridazani" class="social-link card-3d"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/yurida-zani-b35321211/" class="social-link card-3d"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/saturdayyuri" class="social-link card-3d"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p class="mt-3">or email me at <strong>yuridazani.personal@gmail.com</strong> <span class="emoji-highlight">📧</span></p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>Made with <span class="emoji-highlight">❤️</span> by Yurida Zani © 2025. All Rights Reserved.</p>
+        <div class="container footer-container">
+            <div class="logo">Y/Z</div>
+            <div class="social-links">
+                <a href="https://github.com/yuridazani" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/yurida-zani-b35321211/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/saturdayyuri" target="_blank">Instagram</a>
+            </div>
+            <p class="copyright">Made with <span class="emoji-highlight">❤️</span> by Yurida Zani © 2025. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -614,7 +496,6 @@
             });
         });
     }
-
     </script>
 </body>
 </html>
