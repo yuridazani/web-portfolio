@@ -46,8 +46,8 @@
                         Hi, I'm Yurida Zani, a web developer from Indonesia. I build engaging and accessible digital products with a focus on clean design and robust code.
                     </p>
                     <div class="hero-buttons">
-                        <a href="https://drive.google.com/file/d/1vONn6al36Niu9w72S3BsYJk-FBB-J6Bc/view?usp=drive_link" target="_blank" class="btn btn-secondary">Download Resume</a>
                         <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/yuridazani" target="_blank" class="btn btn-secondary">View GitHub</a>
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
@@ -135,48 +135,6 @@
                         </div>
                     </div>
                  </div>
-            </div>
-        </section>
-        
-        <!-- BAGIAN SERTIFIKAT YANG DIKEMBALIKAN -->
-        <section id="certificates" class="certificates">
-            <div class="container">
-                <h2 class="section-title">Certificates & Learning</h2>
-                <div class="certificates-grid">
-                    <div class="certificate-card">
-                        <h3 class="certificate-title">Belajar Dasar Manajemen Proyek</h3>
-                        <p class="certificate-issuer">Dicoding Indonesia</p>
-                        <div class="certificate-meta">
-                            <span>Credential ID: 1OP8W8R9LXQK</span>
-                            <span>Issued: Sept 2024</span>
-                        </div>
-                        <a href="https://www.dicoding.com/certificates/1OP8W8R9LXQK" class="certificate-link" target="_blank">
-                            View Certificate <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                    <div class="certificate-card">
-                        <h3 class="certificate-title">Belajar Dasar Visualisasi Data</h3>
-                        <p class="certificate-issuer">Dicoding Indonesia</p>
-                        <div class="certificate-meta">
-                            <span>Credential ID: L4PQQ28E2PO1</span>
-                            <span>Issued: Feb 2024</span>
-                        </div>
-                        <a href="https://www.dicoding.com/certificates/L4PQQ28E2PO1" class="certificate-link" target="_blank">
-                            View Certificate <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                    <div class="certificate-card">
-                        <h3 class="certificate-title">Memulai Pemrograman dengan Python</h3>
-                        <p class="certificate-issuer">Dicoding Indonesia</p>
-                        <div class="certificate-meta">
-                            <span>Credential ID: EYX40KGROPDL</span>
-                            <span>Issued: Feb 2024</span>
-                        </div>
-                        <a href="https://www.dicoding.com/certificates/EYX40KGROPDL" class="certificate-link" target="_blank">
-                            View Certificate <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -289,7 +247,7 @@
             } finally {
                 if(submitButton) submitButton.disabled = false;
                 if (gformStatus) {
-                    setTimeout(() => { if (gformStatus) gformStatus.textContent = ''; }, 5000);
+                    setTimeout(() => { gformStatus.textContent = ''; }, 5000);
                 }
             }
         });
