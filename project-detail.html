@@ -12,26 +12,193 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* CSS KHUSUS HALAMAN DETAIL */
-        .detail-hero { padding: 120px 0 60px; text-align: center; background: var(--surface-light); border-bottom: 1px solid var(--border-light); }
-        .detail-title { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; color: var(--text-light-primary); }
-        .detail-meta { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
-        .meta-item span { display: block; font-size: 0.9rem; color: var(--text-light-secondary); text-transform: uppercase; letter-spacing: 1px; }
-        .meta-item p { font-weight: 600; color: var(--text-light-primary); font-size: 1.1rem; }
+        /* === CUSTOM STYLES FOR DETAIL PAGE === */
         
-        .case-study-content { padding: 80px 0; max-width: 800px; margin: 0 auto; }
-        .cs-section { margin-bottom: 4rem; }
-        .cs-heading { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 1rem; }
-        .cs-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-light-primary); margin-bottom: 1.5rem; }
-        .cs-list { list-style: none; margin-bottom: 1.5rem; }
-        .cs-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; line-height: 1.6; }
-        .cs-list li::before { content: '•'; color: var(--primary); font-weight: bold; position: absolute; left: 0; font-size: 1.2rem; }
+        /* Hero Section yang Lebih Bold & Modern */
+        .detail-hero {
+            padding: 160px 0 80px;
+            background-color: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
         
-        /* LOGIC SHOW/HIDE */
-        .project-content { display: none; } /* Default sembunyi */
-        .project-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .detail-header-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: end;
+        }
+
+        .detail-label {
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .detail-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            color: var(--text-light-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light-secondary);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Meta Info Grid (Kotak-kotak informasi) */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            background: var(--surface-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .meta-item h4 {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            color: var(--text-light-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .meta-item p {
+            font-weight: 600;
+            color: var(--text-light-primary);
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Layout */
+        .content-wrapper {
+            padding: 80px 0;
+            background-color: var(--surface-light);
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr; /* Sidebar kecil, Konten besar */
+            gap: 4rem;
+        }
+
+        /* Sticky Sidebar untuk Navigasi Cepat (Kesan Dev Docs) */
+        .cs-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .cs-nav-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light-primary);
+        }
+
+        .cs-nav-list {
+            list-style: none;
+            border-left: 2px solid var(--border-light);
+        }
+
+        .cs-nav-list li a {
+            display: block;
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            color: var(--text-light-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .cs-nav-list li a:hover, .cs-nav-list li a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .cs-nav-list li a::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .cs-nav-list li a:hover::before { opacity: 1; }
+
+        /* Typography Content yang Rapi */
+        .cs-body p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cs-section { margin-bottom: 5rem; scroll-margin-top: 120px; }
+        
+        .cs-heading {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light-primary);
+            position: relative;
+        }
+
+        /* Image Placeholder yang Estetik */
+        .cs-image {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 5px solid var(--primary);
+            margin: 2rem 0;
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 992px) {
+            .detail-header-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .case-study-grid { grid-template-columns: 1fr; }
+            .cs-sidebar { display: none; } /* Sembunyikan sidebar di mobile */
+            .detail-hero { padding: 120px 0 60px; }
+            .detail-title { font-size: 2.5rem; }
+        }
+
+        /* Animation Logic */
+        .project-content { display: none; }
+        .project-content.active { display: block; animation: fadeInUp 0.6s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -43,7 +210,9 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">Y/Z</a>
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Back to Home</a>
+                <a href="index.html" class="nav-link btn-outline" style="padding: 0.5rem 1.5rem; border-radius: 99px;">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
             </nav>
         </div>
     </header>
@@ -51,107 +220,206 @@
     <main>
         <article id="tokopedia" class="project-content">
             <section class="detail-hero">
-                <div class="container">
-                    <h1 class="detail-title">Tokopedia Seller Onboarding</h1>
-                    <p class="hero-subtitle">Reducing Time-to-First-Sale by 35% through Progressive Disclosure.</p>
-                    <div class="detail-meta">
-                        <div class="meta-item"><span>Role</span><p>Product Researcher</p></div>
-                        <div class="meta-item"><span>Timeline</span><p>4 Weeks</p></div>
-                        <div class="meta-item"><span>Focus</span><p>UX Strategy</p></div>
+                <div class="container detail-header-grid">
+                    <div class="header-left">
+                        <span class="detail-label">Product Case Study</span>
+                        <h1 class="detail-title">Tokopedia Seller Onboarding</h1>
+                        <p class="detail-subtitle">Reducing Time-to-First-Sale by 35% through Progressive Disclosure and UX Optimization.</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="meta-grid">
+                            <div class="meta-item"><h4>Role</h4><p>Product Researcher</p></div>
+                            <div class="meta-item"><h4>Timeline</h4><p>4 Weeks</p></div>
+                            <div class="meta-item"><h4>Platform</h4><p>Web & Mobile</p></div>
+                            <div class="meta-item"><h4>Focus</h4><p>UX Strategy</p></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <div class="container case-study-content">
-                <div class="cs-section">
-                    <h2 class="cs-heading">The Problem</h2>
-                    <p class="cs-text">New sellers on Tokopedia were dropping off at a rate of 60% during the registration process. The forms were too long, asking for banking details before the user even listed a product.</p>
-                </div>
-                <div class="cs-section">
-                    <h2 class="cs-heading">The Solution</h2>
-                    <p class="cs-text">I proposed a "Progressive Onboarding" flow. Instead of asking for everything upfront, we let sellers list their first item immediately and only asked for verification details when they received their first order.</p>
-                    <ul class="cs-list">
-                        <li>Removed 4 fields from initial sign-up.</li>
-                        <li>Added a "Completion Meter" to gamify the profile setup.</li>
-                        <li>Created automated email nudges for incomplete profiles.</li>
-                    </ul>
-                </div>
-                <div class="cs-section">
-                    <h2 class="cs-heading">The Result</h2>
-                    <p class="cs-text">Based on the prototype testing with 15 users, the Time-to-First-Product-Listing decreased from 12 minutes to 8 minutes (35% improvement).</p>
+            <div class="content-wrapper">
+                <div class="container case-study-grid">
+                    <aside class="cs-sidebar">
+                        <p class="cs-nav-title">Contents</p>
+                        <ul class="cs-nav-list">
+                            <li><a href="#context">Context & Problem</a></li>
+                            <li><a href="#solution">The Solution</a></li>
+                            <li><a href="#process">Process</a></li>
+                            <li><a href="#results">Results & Impact</a></li>
+                        </ul>
+                    </aside>
+
+                    <div class="cs-body">
+                        <div id="context" class="cs-section">
+                            <h2 class="cs-heading">The Problem</h2>
+                            <p>New sellers on Tokopedia were dropping off at a alarming rate of <strong>60%</strong> during the registration process. User research revealed that the forms were intimidatingly long, asking for sensitive banking details before the user even listed a single product.</p>
+                            <div class="stat-box">
+                                <span class="stat-number">60%</span>
+                                <span>Drop-off rate at initial sign-up stage.</span>
+                            </div>
+                        </div>
+
+                        <div id="solution" class="cs-section">
+                            <h2 class="cs-heading">The Strategy</h2>
+                            <p>I proposed a <strong>"Progressive Onboarding"</strong> strategy. Instead of front-loading all data collection, we allow sellers to list their first item immediately. We only ask for verification details when they receive their first order—when motivation is highest.</p>
+                            <div style="background: #ddd; height: 300px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; color: #666; margin-bottom: 1.5rem;">
+                                <i class="fas fa-image" style="font-size: 2rem; margin-right: 10px;"></i> Workflow Diagram Placeholder
+                            </div>
+                            <p>Key changes implemented:</p>
+                            <ul style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-light-secondary);">
+                                <li>Removed 4 redundant fields from initial sign-up.</li>
+                                <li>Added a "Completion Meter" to gamify the profile setup.</li>
+                                <li>Created automated email nudges for incomplete profiles.</li>
+                            </ul>
+                        </div>
+
+                        <div id="results" class="cs-section">
+                            <h2 class="cs-heading">Impact</h2>
+                            <p>Based on usability testing with 15 potential sellers, the redesign showed significant improvements in key metrics.</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="stat-box">
+                                    <span class="stat-number">35%</span>
+                                    <span>Faster Time-to-First-Listing</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-number">8/10</span>
+                                    <span>User Satisfaction Score</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
 
         <article id="campusswap" class="project-content">
             <section class="detail-hero">
-                <div class="container">
-                    <h1 class="detail-title">CampusSwap</h1>
-                    <p class="hero-subtitle">0-to-1 Product Concept: P2P Marketplace for University Students.</p>
-                    <div class="detail-meta">
-                        <div class="meta-item"><span>Role</span><p>Product Manager</p></div>
-                        <div class="meta-item"><span>Type</span><p>MVP Concept</p></div>
-                        <div class="meta-item"><span>Focus</span><p>Market Strategy</p></div>
+                <div class="container detail-header-grid">
+                    <div class="header-left">
+                        <span class="detail-label">0-to-1 Product Concept</span>
+                        <h1 class="detail-title">CampusSwap</h1>
+                        <p class="detail-subtitle">A hyper-local P2P marketplace designed exclusively for university students to trade textbooks and gear safely.</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="meta-grid">
+                            <div class="meta-item"><h4>Role</h4><p>Product Manager</p></div>
+                            <div class="meta-item"><h4>Status</h4><p>MVP Concept</p></div>
+                            <div class="meta-item"><h4>Market</h4><p>EdTech / P2P</p></div>
+                            <div class="meta-item"><h4>Focus</h4><p>GTM Strategy</p></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <div class="container case-study-content">
-                <div class="cs-section">
-                    <h2 class="cs-heading">Market Opportunity</h2>
-                    <p class="cs-text">Students spend average Rp 2.000.000/semester on textbooks that they only use for 6 months. Existing solutions (Facebook Marketplace) are riddled with scams and lack campus verification.</p>
-                </div>
-                <div class="cs-section">
-                    <h2 class="cs-heading">Product Vision</h2>
-                    <p class="cs-text">CampusSwap creates a closed-loop marketplace where users must verify their Student ID (.ac.id email) to trade. This creates high trust and enables hyper-local meetups on campus.</p>
-                </div>
-                <div class="cs-section">
-                    <h2 class="cs-heading">Go-To-Market Strategy</h2>
-                    <ul class="cs-list">
-                        <li><strong>Phase 1:</strong> Launch at 1 University (pilot) using Campus Ambassadors.</li>
-                        <li><strong>Phase 2:</strong> Partner with Student Executive Boards (BEM) for credibility.</li>
-                        <li><strong>Monetization:</strong> Freemium model (free listing, pay for "Urgent" highlight).</li>
-                    </ul>
+            <div class="content-wrapper">
+                <div class="container case-study-grid">
+                    <aside class="cs-sidebar">
+                        <p class="cs-nav-title">Contents</p>
+                        <ul class="cs-nav-list">
+                            <li><a href="#market">Market Analysis</a></li>
+                            <li><a href="#vision">Product Vision</a></li>
+                            <li><a href="#strategy">GTM Strategy</a></li>
+                        </ul>
+                    </aside>
+
+                    <div class="cs-body">
+                        <div id="market" class="cs-section">
+                            <h2 class="cs-heading">Market Opportunity</h2>
+                            <p>Students spend an average of <strong>Rp 2.000.000/semester</strong> on textbooks that they only use for 6 months. Existing solutions like Facebook Marketplace or general e-commerce sites are riddled with scams, lack campus verification, and require expensive shipping.</p>
+                        </div>
+
+                        <div id="vision" class="cs-section">
+                            <h2 class="cs-heading">The Solution</h2>
+                            <p>CampusSwap creates a closed-loop marketplace where users <strong>must verify their Student ID (.ac.id email)</strong> to trade. This creates high trust and enables hyper-local meetups on campus, eliminating shipping costs.</p>
+                            <div style="background: var(--primary); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0;">
+                                <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Value Proposition</h3>
+                                <p style="color: white; margin: 0;">"Trade safely with classmates you can trust, right on campus."</p>
+                            </div>
+                        </div>
+
+                        <div id="strategy" class="cs-section">
+                            <h2 class="cs-heading">Go-To-Market Strategy</h2>
+                            <p>We plan to launch using a hyper-local strategy, focusing on density rather than breadth.</p>
+                            <ul style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-light-secondary);">
+                                <li><strong>Phase 1 (Pilot):</strong> Launch at 1 University (e.g., ITS/UI) using Campus Ambassadors program.</li>
+                                <li><strong>Phase 2 (Trust):</strong> Partner with Student Executive Boards (BEM) for official endorsement.</li>
+                                <li><strong>Monetization:</strong> Freemium model. Free listing for basics, small fee for "Urgent" highlight or verified textbook guarantee.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
 
         <article id="aci-pm" class="project-content">
             <section class="detail-hero">
-                <div class="container">
-                    <h1 class="detail-title">ACI Audit Portal</h1>
-                    <p class="hero-subtitle">Digitizing Internal Audit Process for Large-Scale Coffee Industry.</p>
-                    <div class="detail-meta">
-                        <div class="meta-item"><span>Role</span><p>Assoc. Product Manager</p></div>
-                        <div class="meta-item"><span>Stakeholders</span><p>50+ Internal Users</p></div>
-                        <div class="meta-item"><span>Focus</span><p>Product Delivery</p></div>
+                <div class="container detail-header-grid">
+                    <div class="header-left">
+                        <span class="detail-label">Internal Tool Product Management</span>
+                        <h1 class="detail-title">ACI Audit Portal</h1>
+                        <p class="detail-subtitle">Digitizing the internal audit process for a large-scale coffee industry player, moving from paper to real-time data.</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="meta-grid">
+                            <div class="meta-item"><h4>Role</h4><p>Assoc. PM</p></div>
+                            <div class="meta-item"><h4>Users</h4><p>50+ Internal Staff</p></div>
+                            <div class="meta-item"><h4>Tech</h4><p>PHP / SQL</p></div>
+                            <div class="meta-item"><h4>Focus</h4><p>Digital Transformation</p></div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <div class="container case-study-content">
-                <div class="cs-section">
-                    <h2 class="cs-heading">The Challenge</h2>
-                    <p class="cs-text">PT Aneka Coffee Industry was using paper-based forms for factory audits. Data entry took 3 days per audit, leading to delayed decision-making on quality control.</p>
-                </div>
-                <div class="cs-section">
-                    <h2 class="cs-heading">My Role</h2>
-                    <p class="cs-text">I bridged the gap between the Quality Control department (Users) and the IT Department (Engineers). I gathered requirements, created wireframes in Figma, and prioritized features for the MVP.</p>
-                </div>
-                <div class="cs-section">
-                    <h2 class="cs-heading">Impact</h2>
-                    <ul class="cs-list">
-                        <li>Reduced reporting time from 3 days to <strong>Instant (Real-time)</strong>.</li>
-                        <li>Saved approximately 15 hours of manual labor per week.</li>
-                        <li>Successfully trained 20+ staff members on the new system.</li>
-                    </ul>
+            <div class="content-wrapper">
+                <div class="container case-study-grid">
+                    <aside class="cs-sidebar">
+                        <p class="cs-nav-title">Contents</p>
+                        <ul class="cs-nav-list">
+                            <li><a href="#challenge">The Challenge</a></li>
+                            <li><a href="#role">My Role</a></li>
+                            <li><a href="#outcome">Outcome</a></li>
+                        </ul>
+                    </aside>
+
+                    <div class="cs-body">
+                        <div id="challenge" class="cs-section">
+                            <h2 class="cs-heading">The Challenge</h2>
+                            <p>PT Aneka Coffee Industry was relying on paper-based forms for critical factory audits. This legacy process meant data entry took <strong>3 days per audit</strong>, leading to delayed decision-making on quality control and lost data.</p>
+                        </div>
+
+                        <div id="role" class="cs-section">
+                            <h2 class="cs-heading">My Role & Execution</h2>
+                            <p>I acted as the bridge between the Quality Control department (Users) and the IT Department (Engineers). My responsibilities included:</p>
+                            <ul style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-light-secondary);">
+                                <li>Gathering requirements through user interviews with field auditors.</li>
+                                <li>Creating low-fidelity wireframes in Figma to validate flows before coding.</li>
+                                <li>Prioritizing features for the MVP to ensure on-time delivery (6 weeks).</li>
+                            </ul>
+                        </div>
+
+                        <div id="outcome" class="cs-section">
+                            <h2 class="cs-heading">Business Impact</h2>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                                <div class="stat-box">
+                                    <span class="stat-number">Real-time</span>
+                                    <span>Reporting speed (down from 3 days)</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-number">15hrs</span>
+                                    <span>Manual labor saved per week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
 
         <article id="not-found" class="project-content">
-            <div class="container" style="text-align: center; padding: 100px 0;">
-                <h2>Select a project from the <a href="index.html#projects" style="color: var(--primary);">Portfolio Page</a>.</h2>
+            <div class="container" style="text-align: center; padding: 150px 0;">
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Project Not Found</h2>
+                <p style="color: var(--text-light-secondary); margin-bottom: 2rem;">Please select a project from the main portfolio page.</p>
+                <a href="index.html#projects" class="btn btn-primary">Go to Projects</a>
             </div>
         </article>
 
@@ -165,38 +433,26 @@
     </footer>
 
     <script>
-        // Fungsi untuk menampilkan konten berdasarkan Hash URL
         function showProjectFromHash() {
-            // 1. Ambil hash dari URL (misal #tokopedia), hilangkan tanda '#'
             const hash = window.location.hash.substring(1);
-            
-            // 2. Sembunyikan semua project content
-            document.querySelectorAll('.project-content').forEach(el => {
-                el.classList.remove('active');
-            });
+            document.querySelectorAll('.project-content').forEach(el => el.classList.remove('active'));
 
-            // 3. Jika ada hash dan elemennya ditemukan, tampilkan
             if (hash && document.getElementById(hash)) {
                 document.getElementById(hash).classList.add('active');
-                window.scrollTo(0, 0); // Scroll ke atas
+                window.scrollTo(0, 0);
             } else {
-                // Jika tidak ada hash, atau hash salah
                 document.getElementById('not-found').classList.add('active');
             }
         }
 
-        // Jalankan saat halaman pertama kali dimuat
         window.addEventListener('load', () => {
-            // Hapus loader
             document.querySelector('.loader')?.classList.add('fade-out');
-            // Cek hash
             showProjectFromHash();
         });
 
-        // Jalankan setiap kali hash berubah (misal user klik back/forward)
         window.addEventListener('hashchange', showProjectFromHash);
 
-        // Cursor script (Sama seperti index)
+        // Cursor script
         const cursorDot = document.querySelector(".cursor-dot");
         const cursorOutline = document.querySelector(".cursor-outline");
         if(cursorDot && cursorOutline) {
