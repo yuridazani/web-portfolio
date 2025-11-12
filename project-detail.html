@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === CUSTOM CURSOR STYLES (FIXED) === */
         body.custom-cursor { cursor: none; } 
         
         .cursor-dot,
@@ -54,7 +53,6 @@
             border-color: transparent;
         }
 
-        /* === HEADER MOBILE FIX === */
         .header {
             position: fixed;
             top: 0;
@@ -88,7 +86,7 @@
             display: inline-flex !important;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.7rem 1.8rem !important;
+            padding: 0.6rem 1.5rem !important;
             border-radius: 50px !important;
             border: 2px solid #c20114 !important;
             background: white !important;
@@ -111,7 +109,6 @@
             font-size: 0.9rem;
         }
 
-        /* === DETAIL PAGE STYLES === */
         .detail-hero {
             padding: 160px 0 80px;
             background-color: var(--bg-light, #fafafa);
@@ -383,7 +380,7 @@
             }
 
             .nav-link {
-                padding: 0.6rem 1.3rem !important;
+                padding: 0.55rem 1.2rem !important;
                 font-size: 0.9rem !important;
             }
 
@@ -416,6 +413,7 @@
 
             .nav-container {
                 padding: 0 1rem;
+                gap: 1rem;
             }
 
             .logo {
@@ -683,7 +681,6 @@
     </footer>
 
     <script>
-        // 1. HASH NAVIGATION
         function showProjectFromHash() {
             const hash = window.location.hash.substring(1);
             document.querySelectorAll('.project-content').forEach(el => el.classList.remove('active'));
@@ -696,13 +693,18 @@
             }
         }
 
-        // 2. LOADER
         function hideLoader() {
             const loader = document.querySelector('.loader');
             if (loader && !loader.classList.contains('fade-out')) {
                 loader.classList.add('fade-out');
-                showProjectFromHash();
+                setTimeout(() => {
+                    showProjectFromHash();
+                }, 100);
             }
+        }
+
+        if (window.location.hash) {
+            showProjectFromHash();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -712,24 +714,19 @@
         setTimeout(hideLoader, 3000); 
         window.addEventListener('hashchange', showProjectFromHash);
 
-        // 3. CUSTOM CURSOR (FIXED)
         const cursorDot = document.querySelector(".cursor-dot");
         const cursorOutline = document.querySelector(".cursor-outline");
 
-        // Cek apakah device sentuh
         const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
         if (!isTouchDevice && cursorDot && cursorOutline) {
-            // Desktop: Aktifkan kursor custom
             document.body.classList.add('custom-cursor');
 
-            // Event mousemove untuk cursor dot (instant)
             window.addEventListener("mousemove", function (e) {
                 cursorDot.style.left = `${e.clientX}px`;
                 cursorDot.style.top = `${e.clientY}px`;
             });
 
-            // Event mousemove untuk cursor outline (smooth follow)
             let outlineX = 0;
             let outlineY = 0;
             let mouseX = 0;
@@ -751,7 +748,6 @@
             }
             animateOutline();
 
-            // Hover effect
             function addHoverEffect() {
                 const hoverTargets = document.querySelectorAll("a, button, .hover-target, .meta-grid, .stat-box");
                 hoverTargets.forEach(el => {
@@ -760,10 +756,8 @@
                 });
             }
 
-            // Init hover effects
             addHoverEffect();
             
-            // Re-init after content change
             window.addEventListener('hashchange', () => {
                 setTimeout(addHoverEffect, 100);
             });
