@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Yurida Zani</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CSS KHUSUS HALAMAN DETAIL */
+        .detail-hero { padding: 120px 0 60px; text-align: center; background: var(--surface-light); border-bottom: 1px solid var(--border-light); }
+        .detail-title { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; color: var(--text-light-primary); }
+        .detail-meta { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .meta-item span { display: block; font-size: 0.9rem; color: var(--text-light-secondary); text-transform: uppercase; letter-spacing: 1px; }
+        .meta-item p { font-weight: 600; color: var(--text-light-primary); font-size: 1.1rem; }
+        
+        .case-study-content { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+        .cs-section { margin-bottom: 4rem; }
+        .cs-heading { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 1rem; }
+        .cs-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-light-primary); margin-bottom: 1.5rem; }
+        .cs-list { list-style: none; margin-bottom: 1.5rem; }
+        .cs-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; line-height: 1.6; }
+        .cs-list li::before { content: '•'; color: var(--primary); font-weight: bold; position: absolute; left: 0; font-size: 1.2rem; }
+        
+        /* LOGIC SHOW/HIDE */
+        .project-content { display: none; } /* Default sembunyi */
+        .project-content.active { display: block; animation: fadeIn 0.5s ease; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="loader"><div class="loader-inner"></div></div>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Y/Z</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article id="tokopedia" class="project-content">
+            <section class="detail-hero">
+                <div class="container">
+                    <h1 class="detail-title">Tokopedia Seller Onboarding</h1>
+                    <p class="hero-subtitle">Reducing Time-to-First-Sale by 35% through Progressive Disclosure.</p>
+                    <div class="detail-meta">
+                        <div class="meta-item"><span>Role</span><p>Product Researcher</p></div>
+                        <div class="meta-item"><span>Timeline</span><p>4 Weeks</p></div>
+                        <div class="meta-item"><span>Focus</span><p>UX Strategy</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container case-study-content">
+                <div class="cs-section">
+                    <h2 class="cs-heading">The Problem</h2>
+                    <p class="cs-text">New sellers on Tokopedia were dropping off at a rate of 60% during the registration process. The forms were too long, asking for banking details before the user even listed a product.</p>
+                </div>
+                <div class="cs-section">
+                    <h2 class="cs-heading">The Solution</h2>
+                    <p class="cs-text">I proposed a "Progressive Onboarding" flow. Instead of asking for everything upfront, we let sellers list their first item immediately and only asked for verification details when they received their first order.</p>
+                    <ul class="cs-list">
+                        <li>Removed 4 fields from initial sign-up.</li>
+                        <li>Added a "Completion Meter" to gamify the profile setup.</li>
+                        <li>Created automated email nudges for incomplete profiles.</li>
+                    </ul>
+                </div>
+                <div class="cs-section">
+                    <h2 class="cs-heading">The Result</h2>
+                    <p class="cs-text">Based on the prototype testing with 15 users, the Time-to-First-Product-Listing decreased from 12 minutes to 8 minutes (35% improvement).</p>
+                </div>
+            </div>
+        </article>
+
+        <article id="campusswap" class="project-content">
+            <section class="detail-hero">
+                <div class="container">
+                    <h1 class="detail-title">CampusSwap</h1>
+                    <p class="hero-subtitle">0-to-1 Product Concept: P2P Marketplace for University Students.</p>
+                    <div class="detail-meta">
+                        <div class="meta-item"><span>Role</span><p>Product Manager</p></div>
+                        <div class="meta-item"><span>Type</span><p>MVP Concept</p></div>
+                        <div class="meta-item"><span>Focus</span><p>Market Strategy</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container case-study-content">
+                <div class="cs-section">
+                    <h2 class="cs-heading">Market Opportunity</h2>
+                    <p class="cs-text">Students spend average Rp 2.000.000/semester on textbooks that they only use for 6 months. Existing solutions (Facebook Marketplace) are riddled with scams and lack campus verification.</p>
+                </div>
+                <div class="cs-section">
+                    <h2 class="cs-heading">Product Vision</h2>
+                    <p class="cs-text">CampusSwap creates a closed-loop marketplace where users must verify their Student ID (.ac.id email) to trade. This creates high trust and enables hyper-local meetups on campus.</p>
+                </div>
+                <div class="cs-section">
+                    <h2 class="cs-heading">Go-To-Market Strategy</h2>
+                    <ul class="cs-list">
+                        <li><strong>Phase 1:</strong> Launch at 1 University (pilot) using Campus Ambassadors.</li>
+                        <li><strong>Phase 2:</strong> Partner with Student Executive Boards (BEM) for credibility.</li>
+                        <li><strong>Monetization:</strong> Freemium model (free listing, pay for "Urgent" highlight).</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article id="aci-pm" class="project-content">
+            <section class="detail-hero">
+                <div class="container">
+                    <h1 class="detail-title">ACI Audit Portal</h1>
+                    <p class="hero-subtitle">Digitizing Internal Audit Process for Large-Scale Coffee Industry.</p>
+                    <div class="detail-meta">
+                        <div class="meta-item"><span>Role</span><p>Assoc. Product Manager</p></div>
+                        <div class="meta-item"><span>Stakeholders</span><p>50+ Internal Users</p></div>
+                        <div class="meta-item"><span>Focus</span><p>Product Delivery</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container case-study-content">
+                <div class="cs-section">
+                    <h2 class="cs-heading">The Challenge</h2>
+                    <p class="cs-text">PT Aneka Coffee Industry was using paper-based forms for factory audits. Data entry took 3 days per audit, leading to delayed decision-making on quality control.</p>
+                </div>
+                <div class="cs-section">
+                    <h2 class="cs-heading">My Role</h2>
+                    <p class="cs-text">I bridged the gap between the Quality Control department (Users) and the IT Department (Engineers). I gathered requirements, created wireframes in Figma, and prioritized features for the MVP.</p>
+                </div>
+                <div class="cs-section">
+                    <h2 class="cs-heading">Impact</h2>
+                    <ul class="cs-list">
+                        <li>Reduced reporting time from 3 days to <strong>Instant (Real-time)</strong>.</li>
+                        <li>Saved approximately 15 hours of manual labor per week.</li>
+                        <li>Successfully trained 20+ staff members on the new system.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article id="not-found" class="project-content">
+            <div class="container" style="text-align: center; padding: 100px 0;">
+                <h2>Select a project from the <a href="index.html#projects" style="color: var(--primary);">Portfolio Page</a>.</h2>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <a href="#" class="logo">Yurida Zani</a>
+            <p class="copyright">© 2025 Yurida Zani. Built with Product Thinking.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi untuk menampilkan konten berdasarkan Hash URL
+        function showProjectFromHash() {
+            // 1. Ambil hash dari URL (misal #tokopedia), hilangkan tanda '#'
+            const hash = window.location.hash.substring(1);
+            
+            // 2. Sembunyikan semua project content
+            document.querySelectorAll('.project-content').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // 3. Jika ada hash dan elemennya ditemukan, tampilkan
+            if (hash && document.getElementById(hash)) {
+                document.getElementById(hash).classList.add('active');
+                window.scrollTo(0, 0); // Scroll ke atas
+            } else {
+                // Jika tidak ada hash, atau hash salah
+                document.getElementById('not-found').classList.add('active');
+            }
+        }
+
+        // Jalankan saat halaman pertama kali dimuat
+        window.addEventListener('load', () => {
+            // Hapus loader
+            document.querySelector('.loader')?.classList.add('fade-out');
+            // Cek hash
+            showProjectFromHash();
+        });
+
+        // Jalankan setiap kali hash berubah (misal user klik back/forward)
+        window.addEventListener('hashchange', showProjectFromHash);
+
+        // Cursor script (Sama seperti index)
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorOutline = document.querySelector(".cursor-outline");
+        if(cursorDot && cursorOutline) {
+            window.addEventListener("mousemove", function (e) {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+            });
+        }
+    </script>
+</body>
+</html>
