@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* === CUSTOM CURSOR STYLES (FIXED) === */
         body.custom-cursor { cursor: none; } 
         
         .cursor-dot,
@@ -71,6 +72,7 @@
             padding: 0 2rem;
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .logo {
@@ -79,11 +81,6 @@
             font-weight: 700;
             color: #1a1a1a;
             text-decoration: none;
-            z-index: 10;
-        }
-
-        .nav-menu {
-            display: block;
             z-index: 10;
         }
 
@@ -378,12 +375,16 @@
             }
 
             .nav-container {
-                padding: 0 1rem;
+                padding: 0 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
             }
 
             .nav-link {
-                font-size: 0.9rem;
-                padding: 0.4rem 1rem !important;
+                padding: 0.6rem 1.3rem !important;
+                font-size: 0.9rem !important;
             }
 
             .container {
@@ -409,6 +410,28 @@
         }
 
         @media (max-width: 576px) {
+            .header {
+                padding: 1rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.85rem !important;
+                gap: 0.4rem;
+            }
+
+            .nav-link i {
+                font-size: 0.8rem;
+            }
+
             .detail-hero {
                 padding: 80px 0 30px;
             }
@@ -426,10 +449,6 @@
                 gap: 1rem;
                 padding: 1rem;
             }
-
-            .nav-link i {
-                font-size: 0.85rem;
-            }
         }
     </style>
 </head>
@@ -440,13 +459,11 @@
     <div class="loader"><div class="loader-inner"></div></div>
 
     <header class="header">
-        <div class="container nav-container">
+        <div class="nav-container">
             <a href="index.html" class="logo hover-target">Y/Z</a>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link hover-target">
-                    <i class="fas fa-arrow-left"></i> Back to Projects
-                </a>
-            </nav>
+            <a href="index.html" class="nav-link hover-target">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
         </div>
     </header>
 
@@ -666,6 +683,7 @@
     </footer>
 
     <script>
+        // 1. HASH NAVIGATION
         function showProjectFromHash() {
             const hash = window.location.hash.substring(1);
             document.querySelectorAll('.project-content').forEach(el => el.classList.remove('active'));
@@ -678,6 +696,7 @@
             }
         }
 
+        // 2. LOADER
         function hideLoader() {
             const loader = document.querySelector('.loader');
             if (loader && !loader.classList.contains('fade-out')) {
@@ -693,19 +712,24 @@
         setTimeout(hideLoader, 3000); 
         window.addEventListener('hashchange', showProjectFromHash);
 
+        // 3. CUSTOM CURSOR (FIXED)
         const cursorDot = document.querySelector(".cursor-dot");
         const cursorOutline = document.querySelector(".cursor-outline");
 
+        // Cek apakah device sentuh
         const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
         if (!isTouchDevice && cursorDot && cursorOutline) {
+            // Desktop: Aktifkan kursor custom
             document.body.classList.add('custom-cursor');
 
+            // Event mousemove untuk cursor dot (instant)
             window.addEventListener("mousemove", function (e) {
                 cursorDot.style.left = `${e.clientX}px`;
                 cursorDot.style.top = `${e.clientY}px`;
             });
 
+            // Event mousemove untuk cursor outline (smooth follow)
             let outlineX = 0;
             let outlineY = 0;
             let mouseX = 0;
@@ -727,6 +751,7 @@
             }
             animateOutline();
 
+            // Hover effect
             function addHoverEffect() {
                 const hoverTargets = document.querySelectorAll("a, button, .hover-target, .meta-grid, .stat-box");
                 hoverTargets.forEach(el => {
@@ -735,8 +760,10 @@
                 });
             }
 
+            // Init hover effects
             addHoverEffect();
             
+            // Re-init after content change
             window.addEventListener('hashchange', () => {
                 setTimeout(addHoverEffect, 100);
             });
