@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === CUSTOM CURSOR STYLES (DIJAMIN MUNCUL) === */
-        body { cursor: none; } /* Sembunyikan kursor default */
+        /* === CUSTOM CURSOR STYLES === */
+        /* Default sembunyikan kursor asli, nanti JS akan cek device */
+        body.custom-cursor { cursor: none; } 
         
         .cursor-dot,
         .cursor-outline {
@@ -24,6 +25,12 @@
             border-radius: 50%;
             z-index: 9999;
             pointer-events: none;
+            display: none; /* Default hidden, JS will show it */
+        }
+
+        body.custom-cursor .cursor-dot,
+        body.custom-cursor .cursor-outline {
+            display: block;
         }
 
         .cursor-dot {
@@ -465,46 +472,66 @@
             if (hash && document.getElementById(hash)) {
                 document.getElementById(hash).classList.add('active');
                 window.scrollTo(0, 0);
+            } else if (!hash) {
+                document.getElementById('not-found').classList.add('active');
             } else {
                 document.getElementById('not-found').classList.add('active');
             }
         }
 
-        window.addEventListener('load', () => {
-            document.querySelector('.loader')?.classList.add('fade-out');
-            showProjectFromHash();
+        // 2. LOGIC LOADING CEPAT & AMAN
+        function hideLoader() {
+            const loader = document.querySelector('.loader');
+            if (loader && !loader.classList.contains('fade-out')) {
+                loader.classList.add('fade-out');
+                showProjectFromHash();
+            }
+        }
+
+        // Tampilkan konten begitu HTML siap (Cepat!)
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hideLoader, 500); 
         });
+
+        // Safety Net: Paksa buka max 3 detik jika internet lambat
+        setTimeout(hideLoader, 3000); 
 
         window.addEventListener('hashchange', showProjectFromHash);
 
-        // 2. LOGIC CUSTOM CURSOR (UPDATED)
+        // 3. LOGIC CUSTOM CURSOR (Mobile Friendly)
         const cursorDot = document.querySelector(".cursor-dot");
         const cursorOutline = document.querySelector(".cursor-outline");
-        const hoverTargets = document.querySelectorAll("a, button, .hover-target");
+        const hoverTargets = document.querySelectorAll("a, button, .hover-target, .meta-grid, .stat-box");
 
         if(cursorDot && cursorOutline) {
-            // Gerakkan kursor
-            window.addEventListener("mousemove", function (e) {
-                const posX = e.clientX;
-                const posY = e.clientY;
-                
-                // Dot langsung ikut mouse
-                cursorDot.style.left = `${posX}px`;
-                cursorDot.style.top = `${posY}px`;
-                
-                // Outline ada sedikit delay (smooth)
-                cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-            });
+            // Cek apakah device sentuh (HP/Tablet)
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-            // Efek Hover (Membesar saat masuk elemen interaktif)
-            hoverTargets.forEach(el => {
-                el.addEventListener("mouseenter", () => {
-                    document.body.classList.add("hovering");
+            if (!isTouchDevice) {
+                // Desktop: Aktifkan kursor custom
+                document.body.classList.add('custom-cursor');
+
+                window.addEventListener("mousemove", function (e) {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+                    
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+                    
+                    cursorOutline.animate({ 
+                        left: `${posX}px`, 
+                        top: `${posY}px` 
+                    }, { duration: 500, fill: "forwards" });
                 });
-                el.addEventListener("mouseleave", () => {
-                    document.body.classList.remove("hovering");
+
+                hoverTargets.forEach(el => {
+                    el.addEventListener("mouseenter", () => document.body.classList.add("hovering"));
+                    el.addEventListener("mouseleave", () => document.body.classList.remove("hovering"));
                 });
-            });
+            } else {
+                // Mobile: Matikan kursor custom, pakai default
+                document.body.style.cursor = 'auto';
+            }
         }
     </script>
 </body>
