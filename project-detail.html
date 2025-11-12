@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === CUSTOM CURSOR STYLES === */
-        /* Default sembunyikan kursor asli, nanti JS akan cek device */
+        /* === CUSTOM CURSOR STYLES (FIXED) === */
         body.custom-cursor { cursor: none; } 
         
         .cursor-dot,
@@ -25,40 +24,85 @@
             border-radius: 50%;
             z-index: 9999;
             pointer-events: none;
-            display: none; /* Default hidden, JS will show it */
+            display: none;
+            transition: opacity 0.3s;
         }
 
         body.custom-cursor .cursor-dot,
         body.custom-cursor .cursor-outline {
             display: block;
+            opacity: 1;
         }
 
         .cursor-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--primary);
+            background-color: var(--primary, #c20114);
         }
 
         .cursor-outline {
             width: 40px;
             height: 40px;
-            border: 2px solid var(--primary);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            border: 2px solid var(--primary, #c20114);
+            transition: all 0.15s ease-out;
         }
 
-        /* Efek Hover Kursor */
         body.hovering .cursor-outline {
             width: 60px;
             height: 60px;
-            background-color: rgba(194, 1, 20, 0.1); /* Warna primary transparan */
+            background-color: rgba(194, 1, 20, 0.1);
             border-color: transparent;
         }
 
-        /* === CUSTOM STYLES FOR DETAIL PAGE === */
-        
+        /* === HEADER MOBILE FIX === */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light-primary, #1a1a1a);
+            text-decoration: none;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 99px !important;
+            border: 2px solid var(--primary, #c20114);
+            color: var(--primary, #c20114);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--primary, #c20114);
+            color: white;
+        }
+
+        /* === DETAIL PAGE STYLES === */
         .detail-hero {
             padding: 160px 0 80px;
-            background-color: var(--bg-light);
+            background-color: var(--bg-light, #fafafa);
             position: relative;
             overflow: hidden;
         }
@@ -71,9 +115,9 @@
         }
 
         .detail-label {
-            font-family: var(--font-body);
+            font-family: var(--font-body, 'Poppins', sans-serif);
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary, #c20114);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 1rem;
@@ -81,16 +125,16 @@
         }
 
         .detail-title {
-            font-family: var(--font-heading);
-            font-size: clamp(3rem, 6vw, 5rem);
-            line-height: 1;
-            color: var(--text-light-primary);
+            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+            font-size: clamp(2rem, 6vw, 5rem);
+            line-height: 1.1;
+            color: var(--text-light-primary, #1a1a1a);
             margin-bottom: 1.5rem;
         }
 
         .detail-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-light-secondary);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-light-secondary, #666);
             line-height: 1.6;
             max-width: 600px;
         }
@@ -98,31 +142,32 @@
         .meta-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            background: var(--surface-light);
+            gap: 1.5rem;
+            background: var(--surface-light, white);
             padding: 2rem;
             border-radius: 1rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light, #e5e5e5);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .meta-item h4 {
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-            color: var(--text-light-secondary);
+            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+            font-size: 0.85rem;
+            color: var(--text-light-secondary, #666);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .meta-item p {
             font-weight: 600;
-            color: var(--text-light-primary);
-            font-size: 1.1rem;
+            color: var(--text-light-primary, #1a1a1a);
+            font-size: 1rem;
         }
 
         .content-wrapper {
-            padding: 80px 0;
-            background-color: var(--surface-light);
+            padding: 60px 0;
+            background-color: var(--surface-light, white);
         }
 
         .case-study-grid {
@@ -138,21 +183,23 @@
         }
 
         .cs-nav-title {
-            font-family: var(--font-heading);
+            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--text-light-primary);
+            color: var(--text-light-primary, #1a1a1a);
         }
 
         .cs-nav-list {
             list-style: none;
-            border-left: 2px solid var(--border-light);
+            border-left: 2px solid var(--border-light, #e5e5e5);
+            padding: 0;
+            margin: 0;
         }
 
         .cs-nav-list li a {
             display: block;
             padding: 0.5rem 0 0.5rem 1.5rem;
-            color: var(--text-light-secondary);
+            color: var(--text-light-secondary, #666);
             text-decoration: none;
             font-size: 0.95rem;
             transition: all 0.2s;
@@ -160,7 +207,7 @@
         }
 
         .cs-nav-list li a:hover, .cs-nav-list li a.active {
-            color: var(--primary);
+            color: var(--primary, #c20114);
             font-weight: 600;
         }
         
@@ -171,7 +218,7 @@
             top: 0;
             height: 100%;
             width: 2px;
-            background: var(--primary);
+            background: var(--primary, #c20114);
             opacity: 0;
             transition: opacity 0.2s;
         }
@@ -181,25 +228,28 @@
         .cs-body p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--text-light-secondary);
+            color: var(--text-light-secondary, #666);
             margin-bottom: 1.5rem;
         }
 
-        .cs-section { margin-bottom: 5rem; scroll-margin-top: 120px; }
+        .cs-section { 
+            margin-bottom: 4rem; 
+            scroll-margin-top: 120px; 
+        }
         
         .cs-heading {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
+            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             margin-bottom: 1.5rem;
-            color: var(--text-light-primary);
+            color: var(--text-light-primary, #1a1a1a);
             position: relative;
         }
 
         .stat-box {
-            background: var(--bg-light);
+            background: var(--bg-light, #fafafa);
             padding: 2rem;
             border-radius: 1rem;
-            border-left: 5px solid var(--primary);
+            border-left: 5px solid var(--primary, #c20114);
             margin: 2rem 0;
             transition: transform 0.3s ease;
         }
@@ -209,26 +259,163 @@
         }
         
         .stat-number {
-            font-family: var(--font-heading);
-            font-size: 3rem;
+            font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary, #c20114);
             display: block;
             line-height: 1;
             margin-bottom: 0.5rem;
         }
 
-        @media (max-width: 992px) {
-            .detail-header-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .case-study-grid { grid-template-columns: 1fr; }
-            .cs-sidebar { display: none; }
-            .detail-hero { padding: 120px 0 60px; }
-            .detail-title { font-size: 2.5rem; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .project-content { display: none; }
-        .project-content.active { display: block; animation: fadeInUp 0.6s ease; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .footer {
+            background: var(--bg-light, #fafafa);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .copyright {
+            color: var(--text-light-secondary, #666);
+            font-size: 0.9rem;
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.3s ease;
+        }
+
+        .loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-inner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--primary, #c20114);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .project-content { 
+            display: none; 
+        }
+        
+        .project-content.active { 
+            display: block; 
+            animation: fadeInUp 0.6s ease; 
+        }
+        
+        @keyframes fadeInUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* === MOBILE RESPONSIVE FIXES === */
+        @media (max-width: 992px) {
+            .detail-header-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem; 
+            }
+            
+            .case-study-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+            }
+            
+            .cs-sidebar { 
+                display: none; 
+            }
+            
+            .detail-hero { 
+                padding: 100px 0 40px; 
+            }
+            
+            .detail-title { 
+                font-size: 2rem; 
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem !important;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .meta-grid {
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .cs-body p {
+                font-size: 1rem;
+            }
+
+            .cs-section {
+                margin-bottom: 3rem;
+            }
+
+            .stat-box {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .detail-hero {
+                padding: 80px 0 30px;
+            }
+
+            .detail-title {
+                font-size: 1.75rem;
+            }
+
+            .detail-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-link i {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -241,7 +428,7 @@
         <div class="container nav-container">
             <a href="index.html" class="logo hover-target">Y/Z</a>
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link btn-outline hover-target" style="padding: 0.5rem 1.5rem; border-radius: 99px;">
+                <a href="index.html" class="nav-link hover-target">
                     <i class="fas fa-arrow-left"></i> Back to Projects
                 </a>
             </nav>
@@ -307,7 +494,7 @@
                         <div id="results" class="cs-section">
                             <h2 class="cs-heading">Impact</h2>
                             <p>Based on usability testing with 15 potential sellers, the redesign showed significant improvements in key metrics.</p>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
                                 <div class="stat-box hover-target">
                                     <span class="stat-number">35%</span>
                                     <span>Faster Time-to-First-Listing</span>
@@ -464,7 +651,7 @@
     </footer>
 
     <script>
-        // 1. LOGIC HASH NAVIGATION (TABS)
+        // 1. HASH NAVIGATION
         function showProjectFromHash() {
             const hash = window.location.hash.substring(1);
             document.querySelectorAll('.project-content').forEach(el => el.classList.remove('active'));
@@ -472,14 +659,12 @@
             if (hash && document.getElementById(hash)) {
                 document.getElementById(hash).classList.add('active');
                 window.scrollTo(0, 0);
-            } else if (!hash) {
-                document.getElementById('not-found').classList.add('active');
             } else {
                 document.getElementById('not-found').classList.add('active');
             }
         }
 
-        // 2. LOGIC LOADING CEPAT & AMAN
+        // 2. LOADER
         function hideLoader() {
             const loader = document.querySelector('.loader');
             if (loader && !loader.classList.contains('fade-out')) {
@@ -488,50 +673,68 @@
             }
         }
 
-        // Tampilkan konten begitu HTML siap (Cepat!)
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(hideLoader, 500); 
         });
 
-        // Safety Net: Paksa buka max 3 detik jika internet lambat
         setTimeout(hideLoader, 3000); 
-
         window.addEventListener('hashchange', showProjectFromHash);
 
-        // 3. LOGIC CUSTOM CURSOR (Mobile Friendly)
+        // 3. CUSTOM CURSOR (FIXED)
         const cursorDot = document.querySelector(".cursor-dot");
         const cursorOutline = document.querySelector(".cursor-outline");
-        const hoverTargets = document.querySelectorAll("a, button, .hover-target, .meta-grid, .stat-box");
 
-        if(cursorDot && cursorOutline) {
-            // Cek apakah device sentuh (HP/Tablet)
-            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        // Cek apakah device sentuh
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-            if (!isTouchDevice) {
-                // Desktop: Aktifkan kursor custom
-                document.body.classList.add('custom-cursor');
+        if (!isTouchDevice && cursorDot && cursorOutline) {
+            // Desktop: Aktifkan kursor custom
+            document.body.classList.add('custom-cursor');
 
-                window.addEventListener("mousemove", function (e) {
-                    const posX = e.clientX;
-                    const posY = e.clientY;
-                    
-                    cursorDot.style.left = `${posX}px`;
-                    cursorDot.style.top = `${posY}px`;
-                    
-                    cursorOutline.animate({ 
-                        left: `${posX}px`, 
-                        top: `${posY}px` 
-                    }, { duration: 500, fill: "forwards" });
-                });
+            // Event mousemove untuk cursor dot (instant)
+            window.addEventListener("mousemove", function (e) {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            });
 
+            // Event mousemove untuk cursor outline (smooth follow)
+            let outlineX = 0;
+            let outlineY = 0;
+            let mouseX = 0;
+            let mouseY = 0;
+
+            window.addEventListener("mousemove", function (e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateOutline() {
+                outlineX += (mouseX - outlineX) * 0.15;
+                outlineY += (mouseY - outlineY) * 0.15;
+                
+                cursorOutline.style.left = `${outlineX}px`;
+                cursorOutline.style.top = `${outlineY}px`;
+                
+                requestAnimationFrame(animateOutline);
+            }
+            animateOutline();
+
+            // Hover effect
+            function addHoverEffect() {
+                const hoverTargets = document.querySelectorAll("a, button, .hover-target, .meta-grid, .stat-box");
                 hoverTargets.forEach(el => {
                     el.addEventListener("mouseenter", () => document.body.classList.add("hovering"));
                     el.addEventListener("mouseleave", () => document.body.classList.remove("hovering"));
                 });
-            } else {
-                // Mobile: Matikan kursor custom, pakai default
-                document.body.style.cursor = 'auto';
             }
+
+            // Init hover effects
+            addHoverEffect();
+            
+            // Re-init after content change
+            window.addEventListener('hashchange', () => {
+                setTimeout(addHoverEffect, 100);
+            });
         }
     </script>
 </body>
