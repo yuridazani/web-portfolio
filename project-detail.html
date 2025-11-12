@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === CUSTOM CURSOR STYLES (FIXED) === */
         body.custom-cursor { cursor: none; } 
         
         .cursor-dot,
@@ -60,10 +59,9 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
 
         .nav-container {
@@ -71,32 +69,49 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
             font-family: var(--font-heading, 'Space Grotesk', sans-serif);
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-light-primary, #1a1a1a);
+            color: #1a1a1a;
             text-decoration: none;
+            z-index: 10;
+        }
+
+        .nav-menu {
+            display: block;
+            z-index: 10;
         }
 
         .nav-link {
-            display: inline-flex;
+            display: inline-flex !important;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1.5rem !important;
-            border-radius: 99px !important;
-            border: 2px solid var(--primary, #c20114);
-            color: var(--primary, #c20114);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            padding: 0.7rem 1.8rem !important;
+            border-radius: 50px !important;
+            border: 2px solid #c20114 !important;
+            background: white !important;
+            color: #c20114 !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap;
         }
 
         .nav-link:hover {
-            background: var(--primary, #c20114);
-            color: white;
+            background: #c20114 !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(194, 1, 20, 0.3);
+        }
+
+        .nav-link i {
+            font-size: 0.9rem;
         }
 
         /* === DETAIL PAGE STYLES === */
@@ -651,7 +666,6 @@
     </footer>
 
     <script>
-        // 1. HASH NAVIGATION
         function showProjectFromHash() {
             const hash = window.location.hash.substring(1);
             document.querySelectorAll('.project-content').forEach(el => el.classList.remove('active'));
@@ -664,7 +678,6 @@
             }
         }
 
-        // 2. LOADER
         function hideLoader() {
             const loader = document.querySelector('.loader');
             if (loader && !loader.classList.contains('fade-out')) {
@@ -680,24 +693,19 @@
         setTimeout(hideLoader, 3000); 
         window.addEventListener('hashchange', showProjectFromHash);
 
-        // 3. CUSTOM CURSOR (FIXED)
         const cursorDot = document.querySelector(".cursor-dot");
         const cursorOutline = document.querySelector(".cursor-outline");
 
-        // Cek apakah device sentuh
         const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
         if (!isTouchDevice && cursorDot && cursorOutline) {
-            // Desktop: Aktifkan kursor custom
             document.body.classList.add('custom-cursor');
 
-            // Event mousemove untuk cursor dot (instant)
             window.addEventListener("mousemove", function (e) {
                 cursorDot.style.left = `${e.clientX}px`;
                 cursorDot.style.top = `${e.clientY}px`;
             });
 
-            // Event mousemove untuk cursor outline (smooth follow)
             let outlineX = 0;
             let outlineY = 0;
             let mouseX = 0;
@@ -719,7 +727,6 @@
             }
             animateOutline();
 
-            // Hover effect
             function addHoverEffect() {
                 const hoverTargets = document.querySelectorAll("a, button, .hover-target, .meta-grid, .stat-box");
                 hoverTargets.forEach(el => {
@@ -728,10 +735,8 @@
                 });
             }
 
-            // Init hover effects
             addHoverEffect();
             
-            // Re-init after content change
             window.addEventListener('hashchange', () => {
                 setTimeout(addHoverEffect, 100);
             });
