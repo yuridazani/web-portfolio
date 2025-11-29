@@ -458,7 +458,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© <span class="year">2025</span> Yurida Zani. All Rights Reserved.</p>
+                <p>© <span class="current-year">2025</span> Yurida Zani. All Rights Reserved.</p>
                 <p>Designed & Built with ❤️</p>
             </div>
         </div>
@@ -467,7 +467,7 @@
     <div id="toast-container"></div>
 
 <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+         document.querySelector('.current-year').textContent = new Date().getFullYear();
         
         const burgerBtn = document.querySelector(".burger-menu");
         const mobileNav = document.querySelector(".mobile-nav-overlay");
