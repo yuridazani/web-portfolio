@@ -463,17 +463,20 @@
     
                     const target = btn.getAttribute('data-target');
                     
-                    if (target === 'ops') {
-                        pmProjects.style.display = 'grid';
-                        devProjects.style.display = 'none';
-                        pmProjects.style.opacity = '0';
-                        setTimeout(() => pmProjects.style.opacity = '1', 50);
-                    } else {
-                        pmProjects.style.display = 'none';
-                        devProjects.style.display = 'grid';
-                        devProjects.style.opacity = '0';
-                        setTimeout(() => devProjects.style.opacity = '1', 50);
-                    }
+if (target === 'ops') {
+    opsProjects.style.display = 'grid';
+    devProjects.style.display = 'none';
+
+    opsProjects.style.opacity = '0';
+    setTimeout(() => opsProjects.style.opacity = '1', 50);
+
+} else {
+    opsProjects.style.display = 'none';
+    devProjects.style.display = 'grid';
+
+    devProjects.style.opacity = '0';
+    setTimeout(() => devProjects.style.opacity = '1', 50);
+}
                 });
             });
         }
